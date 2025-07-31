@@ -21,24 +21,34 @@
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts - Inter -->
-    <link href="https://fonts.googleapis.com/css2?f
-        amily=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts - Cairo for Arabic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
+        /* Basic Styles and Font Update */
         html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; }
+        body { font-family: 'Cairo', sans-serif; } /* Changed font to Cairo */
+
+        /* Scroll to Top Button */
         #scrollToTopBtn { display: none; position: fixed; bottom: 20px; right: 20px; z-index: 99; border: none; outline: none; background-color: #4F46E5; color: white; cursor: pointer; padding: 15px; border-radius: 50%; font-size: 18px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; }
         #scrollToTopBtn:hover { background-color: #6366F1; }
+        
+        /* WhatsApp Floating Button */
         .whatsapp-button { position: fixed; bottom: 20px; z-index: 100; background-color: #25D366; color: white; border-radius: 50%; padding: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); display: flex; align-items: center; justify-content: center; font-size: 24px; transition: all 0.3s ease; }
         html[dir="rtl"] .whatsapp-button { left: 20px; }
         html[dir="ltr"] .whatsapp-button { right: 20px; }
         .whatsapp-button:hover { background-color: #1DA851; transform: scale(1.1); }
-        .header-btn { padding: 8px 16px; border-radius: 9999px; transition: all 0.3s; font-weight: 500; }
+        
+        /* Header Button Styling */
+        .header-btn { padding: 8px 16px; border-radius: 9999px; transition: all 0.3s; font-weight: 600; } /* Adjusted font-weight for Cairo */
         .header-btn:hover { background-color: #EEF2FF; color: #4338CA; }
         .header-btn-active { background-color: #4F46E5; color: white; }
         .header-btn-active:hover { background-color: #4338CA; color: white; }
+        
+        /* Copy Button Transition */
         .copy-btn { transition: background-color 0.3s ease; }
     </style>
 </head>
@@ -47,18 +57,18 @@
     <!-- Header Section -->
     <header class="bg-white shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="#hero" class="flex items-center space-x-2">
+            <a href="#hero" class="flex items-center space-x-2 rtl:space-x-reverse">
                 <img src="https://i.postimg.cc/J4QX3W0Y/logo.png" alt="Ehab GM Logo" class="rounded-full w-12 h-12">
                 <span class="text-2xl font-bold text-indigo-700">Ehab GM</span>
             </a>
-            <div class="hidden md:flex items-center space-x-1 text-lg">
+            <div class="hidden md:flex items-center space-x-1 rtl:space-x-reverse text-lg">
                 <a href="#hero" class="text-gray-600 header-btn" data-lang-ar="الرئيسية" data-lang-en="Home">الرئيسية</a>
                 <a href="#services" class="text-gray-600 header-btn" data-lang-ar="خدماتنا" data-lang-en="Services">خدماتنا</a>
                 <a href="#emia-platform" class="text-gray-600 header-btn" data-lang-ar="منصة EMIA" data-lang-en="EMIA Platform">منصة EMIA</a>
                 <a href="#payment" class="text-gray-600 header-btn" data-lang-ar="طرق الدفع" data-lang-en="Payment">طرق الدفع</a>
                 <a href="#contact" class="text-gray-600 header-btn header-btn-active" data-lang-ar="اتصل بنا" data-lang-en="Contact Us">اتصل بنا</a>
             </div>
-            <div class="flex items-center space-x-4">
+            <div class="flex items-center space-x-4 rtl:space-x-reverse">
                  <button id="lang-switcher" class="text-indigo-600 font-semibold focus:outline-none border-2 border-indigo-500 rounded-full w-10 h-10 flex items-center justify-center">EN</button>
                 <div class="md:hidden">
                     <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
@@ -86,7 +96,7 @@
                 <p class="text-lg md:text-xl mb-8 opacity-90" data-lang-ar="نقدم حلولاً إبداعية في تصميم الجرافيك وإدارة الحملات الإعلانية وتحسين محركات البحث (SEO) لتحقيق أفضل ظهور لعلامتك التجارية على الإنترنت." data-lang-en="Creative solutions in graphic design, ad campaign management, and SEO to achieve the best online presence for your brand.">
                     نقدم حلولاً إبداعية في تصميم الجرافيك وإدارة الحملات الإعلانية وتحسين محركات البحث (SEO) لتحقيق أفضل ظهور لعلامتك التجارية على الإنترنت.
                 </p>
-                <div class="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
+                <div class="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4 rtl:space-x-reverse">
                     <a href="#services" class="bg-white text-indigo-700 hover:bg-gray-100 font-bold py-3 px-8 rounded-full shadow-lg transition transform hover:scale-105" data-lang-ar="اكتشف خدماتنا" data-lang-en="Explore Services">اكتشف خدماتنا</a>
                     <a href="#contact" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-indigo-700 font-bold py-3 px-8 rounded-full shadow-lg transition transform hover:scale-105" data-lang-ar="اطلب تصميم الآن" data-lang-en="Request a Design">اطلب تصميم الآن</a>
                 </div>
@@ -137,7 +147,7 @@
                 <p class="text-lg text-gray-700 mb-6" data-lang-ar="منصتنا المطورة EMIA تستخدم أحدث نماذج الذكاء الاصطناعي لتقديم تحليلات دقيقة، استهداف متقدم للجمهور، وتوصيات ذكية لزيادة عائد استثمارك. 📈" data-lang-en="Our advanced EMIA platform uses the latest AI models to provide accurate analytics, advanced audience targeting, and smart recommendations to increase your ROI. 📈">منصتنا المطورة EMIA تستخدم أحدث نماذج الذكاء الاصطناعي لتقديم تحليلات دقيقة، استهداف متقدم للجمهور، وتوصيات ذكية لزيادة عائد استثمارك. 📈</p>
                 <div class="bg-white p-4 rounded-lg shadow-md">
                     <p class="font-semibold text-center mb-3" data-lang-ar="مدعوم بتقنيات:" data-lang-en="Powered by:">مدعوم بتقنيات:</p>
-                    <div class="flex justify-center items-center space-x-4">
+                    <div class="flex justify-center items-center space-x-4 rtl:space-x-reverse">
                         <img src="https://www.gstatic.com/images/branding/googlelogo/1x/googlelogo_color_74x24dp.png" alt="Google Gemini" class="h-8">
                         <img src="https://openai.com/assets/images/logo.svg" alt="OpenAI" class="h-8">
                     </div>
@@ -158,7 +168,7 @@
                 <div class="bg-gray-50 rounded-lg shadow-lg p-6 text-center border-t-4 border-red-600">
                     <i class="fas fa-wallet fa-3x text-red-600 mb-4"></i>
                     <h3 class="text-2xl font-semibold mb-2" data-lang-ar="فودافون كاش" data-lang-en="Vodafone Cash">فودافون كاش</h3>
-                    <p class="text-lg font-bold text-gray-800 mb-4">01022679250</p>
+                    <p class="text-lg font-bold text-gray-800 mb-4" style="direction: ltr;">01022679250</p>
                     <a href="http://vf.eg/vfcash?id=mt&qrId=rMAVF3" target="_blank" class="w-full inline-block bg-red-600 text-white font-bold py-2 px-4 rounded-full hover:bg-red-700 transition" data-lang-ar="دفع سريع" data-lang-en="Quick Pay">دفع سريع</a>
                 </div>
 
@@ -166,7 +176,7 @@
                 <div class="bg-gray-50 rounded-lg shadow-lg p-6 text-center border-t-4 border-blue-600">
                     <i class="fas fa-bolt fa-3x text-blue-600 mb-4"></i>
                     <h3 class="text-2xl font-semibold mb-2" data-lang-ar="إنستا باي" data-lang-en="InstaPay">إنستا باي</h3>
-                    <p class="text-lg font-bold text-gray-800 mb-4">01022679250</p>
+                    <p class="text-lg font-bold text-gray-800 mb-4" style="direction: ltr;">01022679250</p>
                     <p class="text-sm text-gray-500" data-lang-ar="استخدم رقم الهاتف للتحويل" data-lang-en="Use the phone number to transfer">استخدم رقم الهاتف للتحويل</p>
                 </div>
 
@@ -204,7 +214,7 @@
                         <button type="submit" class="inline-block bg-indigo-600 text-white hover:bg-indigo-700 font-bold py-3 px-10 rounded-full shadow-lg transition transform hover:scale-105" data-lang-ar="إرسال عبر واتساب" data-lang-en="Send via WhatsApp">إرسال عبر واتساب</button>
                     </div>
                 </form>
-                <div class="mt-4 flex items-center justify-center text-gray-500"><i class="fas fa-lock ml-2"></i><span data-lang-ar="اتصال آمن ومشفر" data-lang-en="Secure & Encrypted Connection">اتصال آمن ومشفر</span></div>
+                <div class="mt-4 flex items-center justify-center text-gray-500"><i class="fas fa-lock ml-2 rtl:mr-2 rtl:ml-0"></i><span data-lang-ar="اتصال آمن ومشفر" data-lang-en="Secure & Encrypted Connection">اتصال آمن ومشفر</span></div>
             </div>
         </div>
     </section>
@@ -214,7 +224,7 @@
         <div class="container mx-auto px-4">
             <div class="text-center md:flex md:justify-between md:items-center">
                 <div class="mb-4 md:mb-0"><p data-lang-ar="&copy; 2025 Ehab GM Online Services. جميع الحقوق محفوظة." data-lang-en="&copy; 2025 Ehab GM Online Services. All rights reserved.">&copy; 2025 Ehab GM Online Services. جميع الحقوق محفوظة.</p></div>
-                <div class="flex justify-center md:justify-end space-x-4">
+                <div class="flex justify-center md:justify-end space-x-4 rtl:space-x-reverse">
                     <a href="https://facebook.com/ehab.gm1" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f fa-lg"></i></a>
                     <a href="https://www.threads.net/@ehab.gm1" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition"><i class="fab fa-threads fa-lg"></i></a>
                     <a href="https://x.com/ehabgm" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter fa-lg"></i></a>
@@ -231,25 +241,25 @@
         <div class="bg-white rounded-lg shadow-xl p-8 max-w-lg w-full m-4 text-gray-800 relative">
             <button onclick="document.getElementById('crypto-modal').style.display='none'" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800"><i class="fas fa-times fa-2x"></i></button>
             <h3 class="text-2xl font-bold mb-6 text-center" data-lang-ar="عناوين العملات الرقمية" data-lang-en="Crypto Addresses">عناوين العملات الرقمية</h3>
-            <div class="space-y-4">
+            <div class="space-y-4 text-left">
                 <div>
                     <label class="font-semibold">Bitcoin (BTC)</label>
                     <div class="flex items-center mt-1">
-                        <input id="btc-address" type="text" readonly value="bc1p8qxlqw22lm5w4fkhcjjkj7gwacaxvm0fnvfflnwcz39sym897j6s924ynd" class="w-full p-2 border rounded-l-md bg-gray-100">
+                        <input id="btc-address" type="text" readonly value="bc1p8qxlqw22lm5w4fkhcjjkj7gwacaxvm0fnvfflnwcz39sym897j6s924ynd" class="w-full p-2 border rounded-l-md bg-gray-100 font-mono text-sm">
                         <button onclick="copyToClipboard('btc-address', this)" class="bg-indigo-600 text-white px-4 py-2 rounded-r-md hover:bg-indigo-700 copy-btn" data-lang-ar="نسخ" data-lang-en="Copy">نسخ</button>
                     </div>
                 </div>
                 <div>
-                    <label class="font-semibold">Ethereum (ETH)</label>
+                    <label class="font-semibold">Ethereum (ETH - ERC20)</label>
                     <div class="flex items-center mt-1">
-                        <input id="eth-address" type="text" readonly value="0x414E2aC7278e41992577339FE794D35C5a388d60" class="w-full p-2 border rounded-l-md bg-gray-100">
+                        <input id="eth-address" type="text" readonly value="0x414E2aC7278e41992577339FE794D35C5a388d60" class="w-full p-2 border rounded-l-md bg-gray-100 font-mono text-sm">
                         <button onclick="copyToClipboard('eth-address', this)" class="bg-indigo-600 text-white px-4 py-2 rounded-r-md hover:bg-indigo-700 copy-btn" data-lang-ar="نسخ" data-lang-en="Copy">نسخ</button>
                     </div>
                 </div>
                 <div>
                     <label class="font-semibold">Litecoin (LTC)</label>
                     <div class="flex items-center mt-1">
-                        <input id="ltc-address" type="text" readonly value="ltc1q93a2puzh8pjy2j4f49t7grtjlmuk4p4trra08z" class="w-full p-2 border rounded-l-md bg-gray-100">
+                        <input id="ltc-address" type="text" readonly value="ltc1q93a2puzh8pjy2j4f49t7grtjlmuk4p4trra08z" class="w-full p-2 border rounded-l-md bg-gray-100 font-mono text-sm">
                         <button onclick="copyToClipboard('ltc-address', this)" class="bg-indigo-600 text-white px-4 py-2 rounded-r-md hover:bg-indigo-700 copy-btn" data-lang-ar="نسخ" data-lang-en="Copy">نسخ</button>
                     </div>
                 </div>
@@ -257,7 +267,8 @@
         </div>
     </div>
 
-    <button id="scrollToTopBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+    <!-- Scroll to Top & WhatsApp Buttons -->
+    <button id="scrollToTopBtn" title="العودة للأعلى"><i class="fas fa-arrow-up"></i></button>
     <a href="https://wa.me/201022679250" target="_blank" rel="noopener noreferrer" class="whatsapp-button"><i class="fab fa-whatsapp"></i></a>
     
     <script>
@@ -270,14 +281,17 @@
             try {
                 document.execCommand('copy');
                 const originalText = button.innerHTML;
-                button.innerHTML = htmlEl.getAttribute('lang') === 'ar' ? 'تم النسخ!' : 'Copied!';
+                const lang = document.documentElement.getAttribute('lang') || 'ar';
+                button.innerHTML = lang === 'ar' ? 'تم النسخ!' : 'Copied!';
+                button.classList.remove('bg-indigo-600');
                 button.classList.add('bg-green-500');
                 setTimeout(() => {
                     button.innerHTML = originalText;
                     button.classList.remove('bg-green-500');
+                    button.classList.add('bg-indigo-600');
                 }, 2000);
             } catch (err) {
-                alert('Oops, unable to copy');
+                console.error('Fallback: Oops, unable to copy', err);
             }
         }
 
@@ -285,23 +299,34 @@
             const langSwitcher = document.getElementById('lang-switcher');
             const htmlEl = document.documentElement;
 
+            // --- Language Switcher Functionality ---
             function setLanguage(lang) {
                 htmlEl.setAttribute('lang', lang);
                 htmlEl.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
                 langSwitcher.textContent = lang === 'ar' ? 'EN' : 'ع';
+                
+                // Translate all elements with data-lang attributes
                 document.querySelectorAll('[data-lang-ar]').forEach(el => {
                     const text = el.getAttribute(`data-lang-${lang}`);
                     if (text) el.innerHTML = text;
                 });
+                
+                // Update placeholders
                 document.querySelectorAll('[placeholder-ar]').forEach(el => {
                     const placeholderText = el.getAttribute(`placeholder-${lang}`);
                     if(placeholderText) el.setAttribute('placeholder', placeholderText);
                 });
-                 document.querySelectorAll('[title-ar]').forEach(el => {
+                
+                // Update titles
+                document.querySelectorAll('[title-ar]').forEach(el => {
                     const titleText = el.getAttribute(`title-${lang}`);
                     if(titleText) el.setAttribute('title', titleText);
                 });
+
+                // Update page title
                 document.title = document.querySelector('title').getAttribute(`data-lang-${lang}`);
+                
+                // Save preference
                 localStorage.setItem('language', lang);
             }
 
@@ -310,19 +335,27 @@
                 setLanguage(newLang);
             });
 
+            // Load saved language or default to Arabic
             const savedLang = localStorage.getItem('language');
             setLanguage(savedLang || 'ar');
 
+            // --- Mobile Menu ---
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
+            // --- Scroll to Top Button ---
             const scrollToTopBtn = document.getElementById('scrollToTopBtn');
             window.onscroll = () => {
-                scrollToTopBtn.style.display = (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) ? "block" : "none";
+                if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                    scrollToTopBtn.style.display = "block";
+                } else {
+                    scrollToTopBtn.style.display = "none";
+                }
             };
             scrollToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
+            // --- Contact Form to WhatsApp ---
             const contactForm = document.getElementById('contact-form');
             contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
@@ -330,9 +363,13 @@
                 const email = document.getElementById('email').value;
                 const message = document.getElementById('message').value;
                 const whatsappNumber = "201022679250";
+                
+                // Message template
                 let whatsappMessage = `*رسالة جديدة من موقع ehabgm.online*\n\n*الاسم:* ${name}\n*البريد الإلكتروني:* ${email}\n*الرسالة:*\n${message}`;
+                
                 const encodedMessage = encodeURIComponent(whatsappMessage);
                 const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+                
                 window.open(whatsappURL, '_blank');
                 contactForm.reset();
             });
