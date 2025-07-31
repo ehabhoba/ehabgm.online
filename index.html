@@ -8,8 +8,8 @@
     
     <!-- SEO Meta Tags -->
     <title data-lang-ar="Ehab GM | مصمم جرافيك وخبير تسويق رقمي في مصر" data-lang-en="Ehab GM | Graphic Designer & Digital Marketing Expert in Egypt">Ehab GM | مصمم جرافيك وخبير تسويق رقمي في مصر</title>
-    <meta name="description" content="Ehab GM، مصمم جرافيك محترف وخبير تسويق إلكتروني في مصر. نقدم خدمات تصميم الشعارات، إدارة الإعلانات الممولة، وتحسين محركات البحث (SEO) باستخدام نماذج الذكاء الاصطناعي Gemini و OpenAI.">
-    <meta name="keywords" content="مصمم جرافيك, Gemini API, OpenAI, تسويق بالذكاء الاصطناعي, مصمم جرافيك في مصر, مصمم جرافيك محترف, تصميم شعارات, اعلان ممول انستقرام, تسويق الكتروني, تحسين محركات البحث, SEO, إدارة الحملات الإعلانية, تصميم بوستات سوشيال ميديا, هوية بصرية, تسويق جوجل, إنشاء متجر إلكتروني, القاهرة, مصر">
+    <meta name="description" content="Ehab GM، مصمم جرافيك محترف وخبير تسويق إلكتروني في مصر. نقدم خدمات تصميم الشعارات، إدارة الإعلانات الممولة، وتحسين محركات البحث (SEO) باستخدام المساعد الذكي EMIA.">
+    <meta name="keywords" content="مصمم جرافيك, EMIA, Gemini API, OpenAI, تسويق بالذكاء الاصطناعي, مصمم جرافيك في مصر, مصمم جرافيك محترف, تصميم شعارات, اعلان ممول انستقرام, تسويق الكتروني, تحسين محركات البحث, SEO, إدارة الحملات الإعلانية, تصميم بوستات سوشيال ميديا, هوية بصرية, تسويق جوجل, إنشاء متجر إلكتروني, القاهرة, مصر">
     <meta name="author" content="Ehab GM Online Services">
     
     <!-- Open Graph Meta Tags -->
@@ -28,28 +28,30 @@
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* Basic Styles and Font Update */
         html { scroll-behavior: smooth; }
-        body { font-family: 'Cairo', sans-serif; } /* Changed font to Cairo */
+        body { font-family: 'Cairo', sans-serif; }
 
-        /* Scroll to Top Button */
         #scrollToTopBtn { display: none; position: fixed; bottom: 20px; right: 20px; z-index: 99; border: none; outline: none; background-color: #4F46E5; color: white; cursor: pointer; padding: 15px; border-radius: 50%; font-size: 18px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; }
         #scrollToTopBtn:hover { background-color: #6366F1; }
         
-        /* WhatsApp Floating Button */
         .whatsapp-button { position: fixed; bottom: 20px; z-index: 100; background-color: #25D366; color: white; border-radius: 50%; padding: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); display: flex; align-items: center; justify-content: center; font-size: 24px; transition: all 0.3s ease; }
         html[dir="rtl"] .whatsapp-button { left: 20px; }
         html[dir="ltr"] .whatsapp-button { right: 20px; }
         .whatsapp-button:hover { background-color: #1DA851; transform: scale(1.1); }
         
-        /* Header Button Styling */
-        .header-btn { padding: 8px 16px; border-radius: 9999px; transition: all 0.3s; font-weight: 600; } /* Adjusted font-weight for Cairo */
+        .header-btn { padding: 8px 16px; border-radius: 9999px; transition: all 0.3s; font-weight: 600; }
         .header-btn:hover { background-color: #EEF2FF; color: #4338CA; }
         .header-btn-active { background-color: #4F46E5; color: white; }
         .header-btn-active:hover { background-color: #4338CA; color: white; }
         
-        /* Copy Button Transition */
         .copy-btn { transition: background-color 0.3s ease; }
+        
+        /* Accordion styles for payment section */
+        #payment-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -64,6 +66,7 @@
             <div class="hidden md:flex items-center space-x-1 rtl:space-x-reverse text-lg">
                 <a href="#hero" class="text-gray-600 header-btn" data-lang-ar="الرئيسية" data-lang-en="Home">الرئيسية</a>
                 <a href="#services" class="text-gray-600 header-btn" data-lang-ar="خدماتنا" data-lang-en="Services">خدماتنا</a>
+                <a href="#emia-suggestions" class="text-gray-600 header-btn" data-lang-ar="مساعد EMIA" data-lang-en="EMIA Assistant">مساعد EMIA</a>
                 <a href="#emia-platform" class="text-gray-600 header-btn" data-lang-ar="منصة EMIA" data-lang-en="EMIA Platform">منصة EMIA</a>
                 <a href="#payment" class="text-gray-600 header-btn" data-lang-ar="طرق الدفع" data-lang-en="Payment">طرق الدفع</a>
                 <a href="#contact" class="text-gray-600 header-btn header-btn-active" data-lang-ar="اتصل بنا" data-lang-en="Contact Us">اتصل بنا</a>
@@ -80,6 +83,7 @@
         <div id="mobile-menu" class="hidden md:hidden bg-white py-2 shadow-lg">
             <a href="#hero" class="block px-4 py-2 text-gray-800 hover:bg-indigo-50" data-lang-ar="الرئيسية" data-lang-en="Home">الرئيسية</a>
             <a href="#services" class="block px-4 py-2 text-gray-800 hover:bg-indigo-50" data-lang-ar="خدماتنا" data-lang-en="Services">خدماتنا</a>
+            <a href="#emia-suggestions" class="block px-4 py-2 text-gray-800 hover:bg-indigo-50" data-lang-ar="مساعد EMIA" data-lang-en="EMIA Assistant">مساعد EMIA</a>
             <a href="#emia-platform" class="block px-4 py-2 text-gray-800 hover:bg-indigo-50" data-lang-ar="منصة EMIA" data-lang-en="EMIA Platform">منصة EMIA</a>
             <a href="#payment" class="block px-4 py-2 text-gray-800 hover:bg-indigo-50" data-lang-ar="طرق الدفع" data-lang-en="Payment">طرق الدفع</a>
             <a href="#contact" class="block px-4 py-2 text-gray-800 hover:bg-indigo-50" data-lang-ar="اتصل بنا" data-lang-en="Contact Us">اتصل بنا</a>
@@ -135,9 +139,38 @@
             </div>
         </div>
     </section>
+
+    <!-- EMIA Suggestions Section -->
+    <section id="emia-suggestions" class="py-16 md:py-24 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto">
+                <h2 class="text-4xl font-bold mb-4 text-gray-900" data-lang-ar="✍️ محتوى تسويقي من مساعدك EMIA" data-lang-en="✍️ Marketing Content by EMIA">✍️ محتوى تسويقي من مساعدك EMIA</h2>
+                <p class="text-lg text-gray-600 mb-8" data-lang-ar="اكتب نوع مشروعك، ودع مساعدك الذكي EMIA يكتب لك منشور إعلاني احترافي جاهز للنشر على السوشيال ميديا!" data-lang-en="Describe your project, and let your smart assistant EMIA write a professional social media post for you!">اكتب نوع مشروعك، ودع مساعدك الذكي EMIA يكتب لك منشور إعلاني احترافي جاهز للنشر على السوشيال ميديا!</p>
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <div class="space-y-4">
+                        <div>
+                            <label for="business-type" class="hidden">Business Type</label>
+                            <input type="text" id="business-type" class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg text-right" placeholder-ar="مثال: كافيه جديد في القاهرة" placeholder-en="e.g., A new coffee shop in Cairo">
+                        </div>
+                        <button id="generate-ideas-btn" class="w-full inline-flex items-center justify-center bg-purple-600 text-white hover:bg-purple-700 font-bold py-3 px-10 rounded-full shadow-lg transition transform hover:scale-105">
+                            <span data-lang-ar="💡 اكتب لي منشور" data-lang-en="💡 Write a Post">💡 اكتب لي منشور</span>
+                        </button>
+                    </div>
+                    <div id="loading-spinner" class="hidden mt-6">
+                        <div class="flex justify-center items-center">
+                            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
+                        </div>
+                    </div>
+                    <div id="ideas-result" class="mt-8 text-right bg-gray-50 p-6 rounded-md min-h-[100px] whitespace-pre-wrap">
+                        <p id="ideas-placeholder" class="text-gray-400" data-lang-ar="سيظهر المنشور الإعلاني هنا..." data-lang-en="The ad post will appear here...">سيظهر المنشور الإعلاني هنا...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     
     <!-- EMIA Platform & AI Integration Section -->
-    <section id="emia-platform" class="py-16 md:py-24 bg-gray-100">
+    <section id="emia-platform" class="py-16 md:py-24 bg-white">
         <div class="container mx-auto px-4 flex flex-col md:flex-row-reverse items-center justify-between gap-12">
             <div class="md:w-1/2 flex justify-center">
                  <img src="https://i.postimg.cc/s2H4SnD0/1-21.jpg" alt="منصة EMIA V1.0 - المسوق الذكي" class="rounded-lg shadow-xl transform hover:scale-105 transition duration-500">
@@ -145,7 +178,7 @@
             <div class="md:w-1/2 text-center md:text-right">
                 <h2 class="text-4xl font-bold text-gray-900 mb-2" data-lang-ar="EMIA V1.0 - مدعوم بالذكاء الاصطناعي" data-lang-en="EMIA V1.0 - AI-Powered">EMIA V1.0 - مدعوم بالذكاء الاصطناعي</h2>
                 <p class="text-lg text-gray-700 mb-6" data-lang-ar="منصتنا المطورة EMIA تستخدم أحدث نماذج الذكاء الاصطناعي لتقديم تحليلات دقيقة، استهداف متقدم للجمهور، وتوصيات ذكية لزيادة عائد استثمارك. 📈" data-lang-en="Our advanced EMIA platform uses the latest AI models to provide accurate analytics, advanced audience targeting, and smart recommendations to increase your ROI. 📈">منصتنا المطورة EMIA تستخدم أحدث نماذج الذكاء الاصطناعي لتقديم تحليلات دقيقة، استهداف متقدم للجمهور، وتوصيات ذكية لزيادة عائد استثمارك. 📈</p>
-                <div class="bg-white p-4 rounded-lg shadow-md">
+                <div class="bg-gray-50 p-4 rounded-lg shadow-md">
                     <p class="font-semibold text-center mb-3" data-lang-ar="مدعوم بتقنيات:" data-lang-en="Powered by:">مدعوم بتقنيات:</p>
                     <div class="flex justify-center items-center space-x-4 rtl:space-x-reverse">
                         <img src="https://www.gstatic.com/images/branding/googlelogo/1x/googlelogo_color_74x24dp.png" alt="Google Gemini" class="h-8">
@@ -159,33 +192,39 @@
     </section>
 
     <!-- Payment Methods Section -->
-    <section id="payment" class="py-16 md:py-24 bg-white">
+    <section id="payment" class="py-16 md:py-24 bg-gray-100">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12 text-gray-900" data-lang-ar="طرق الدفع المتاحة" data-lang-en="Available Payment Methods">طرق الدفع المتاحة</h2>
-            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- Vodafone Cash -->
-                <div class="bg-gray-50 rounded-lg shadow-lg p-6 text-center border-t-4 border-red-600">
-                    <i class="fas fa-wallet fa-3x text-red-600 mb-4"></i>
-                    <h3 class="text-2xl font-semibold mb-2" data-lang-ar="فودافون كاش" data-lang-en="Vodafone Cash">فودافون كاش</h3>
-                    <p class="text-lg font-bold text-gray-800 mb-4" style="direction: ltr;">01022679250</p>
-                    <a href="http://vf.eg/vfcash?id=mt&qrId=rMAVF3" target="_blank" class="w-full inline-block bg-red-600 text-white font-bold py-2 px-4 rounded-full hover:bg-red-700 transition" data-lang-ar="دفع سريع" data-lang-en="Quick Pay">دفع سريع</a>
-                </div>
+            <div class="max-w-4xl mx-auto">
+                <button id="payment-toggle" class="w-full bg-white rounded-lg shadow-lg p-6 flex justify-between items-center text-2xl font-bold text-gray-900 transition hover:bg-gray-50">
+                    <span data-lang-ar="طرق الدفع المتاحة" data-lang-en="Available Payment Methods">طرق الدفع المتاحة</span>
+                    <i id="payment-chevron" class="fas fa-chevron-down transition-transform"></i>
+                </button>
+                <div id="payment-details" class="mt-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Vodafone Cash -->
+                        <div class="bg-white rounded-lg shadow-lg p-6 text-center border-t-4 border-red-600">
+                            <i class="fas fa-wallet fa-3x text-red-600 mb-4"></i>
+                            <h3 class="text-2xl font-semibold mb-2" data-lang-ar="فودافون كاش" data-lang-en="Vodafone Cash">فودافون كاش</h3>
+                            <p class="text-lg font-bold text-gray-800 mb-4" style="direction: ltr;">01022679250</p>
+                            <a href="http://vf.eg/vfcash?id=mt&qrId=rMAVF3" target="_blank" class="w-full inline-block bg-red-600 text-white font-bold py-2 px-4 rounded-full hover:bg-red-700 transition" data-lang-ar="دفع سريع" data-lang-en="Quick Pay">دفع سريع</a>
+                        </div>
 
-                <!-- InstaPay -->
-                <div class="bg-gray-50 rounded-lg shadow-lg p-6 text-center border-t-4 border-blue-600">
-                    <i class="fas fa-bolt fa-3x text-blue-600 mb-4"></i>
-                    <h3 class="text-2xl font-semibold mb-2" data-lang-ar="إنستا باي" data-lang-en="InstaPay">إنستا باي</h3>
-                    <p class="text-lg font-bold text-gray-800 mb-4" style="direction: ltr;">01022679250</p>
-                    <p class="text-sm text-gray-500" data-lang-ar="استخدم رقم الهاتف للتحويل" data-lang-en="Use the phone number to transfer">استخدم رقم الهاتف للتحويل</p>
-                </div>
+                        <!-- InstaPay -->
+                        <div class="bg-white rounded-lg shadow-lg p-6 text-center border-t-4 border-blue-600">
+                            <i class="fas fa-bolt fa-3x text-blue-600 mb-4"></i>
+                            <h3 class="text-2xl font-semibold mb-2" data-lang-ar="إنستا باي" data-lang-en="InstaPay">إنستا باي</h3>
+                            <p class="text-lg font-bold text-gray-800 mb-4" style="direction: ltr;">01022679250</p>
+                            <p class="text-sm text-gray-500" data-lang-ar="استخدم رقم الهاتف للتحويل" data-lang-en="Use the phone number to transfer">استخدم رقم الهاتف للتحويل</p>
+                        </div>
 
-                <!-- Crypto -->
-                <div class="bg-gray-50 rounded-lg shadow-lg p-6 text-center border-t-4 border-yellow-500">
-                    <i class="fab fa-bitcoin fa-3x text-yellow-500 mb-4"></i>
-                    <h3 class="text-2xl font-semibold mb-2" data-lang-ar="عملات رقمية" data-lang-en="Cryptocurrency">عملات رقمية</h3>
-                    <p class="text-sm text-gray-500 mb-4" data-lang-ar="نقبل Bitcoin و Ethereum" data-lang-en="We accept Bitcoin & Ethereum">نقبل Bitcoin و Ethereum</p>
-                    <button onclick="document.getElementById('crypto-modal').style.display='flex'" class="w-full inline-block bg-yellow-500 text-white font-bold py-2 px-4 rounded-full hover:bg-yellow-600 transition" data-lang-ar="عرض العناوين" data-lang-en="Show Addresses">عرض العناوين</button>
+                        <!-- Crypto -->
+                        <div class="bg-white rounded-lg shadow-lg p-6 text-center border-t-4 border-yellow-500">
+                            <i class="fab fa-bitcoin fa-3x text-yellow-500 mb-4"></i>
+                            <h3 class="text-2xl font-semibold mb-2" data-lang-ar="عملات رقمية" data-lang-en="Cryptocurrency">عملات رقمية</h3>
+                            <p class="text-sm text-gray-500 mb-4" data-lang-ar="نقبل Bitcoin و Ethereum" data-lang-en="We accept Bitcoin & Ethereum">نقبل Bitcoin و Ethereum</p>
+                            <button onclick="document.getElementById('crypto-modal').style.display='flex'" class="w-full inline-block bg-yellow-500 text-white font-bold py-2 px-4 rounded-full hover:bg-yellow-600 transition" data-lang-ar="عرض العناوين" data-lang-en="Show Addresses">عرض العناوين</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -276,7 +315,7 @@
         function copyToClipboard(elementId, button) {
             const input = document.getElementById(elementId);
             input.select();
-            input.setSelectionRange(0, 99999); // For mobile devices
+            input.setSelectionRange(0, 99999);
             
             try {
                 document.execCommand('copy');
@@ -305,28 +344,22 @@
                 htmlEl.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
                 langSwitcher.textContent = lang === 'ar' ? 'EN' : 'ع';
                 
-                // Translate all elements with data-lang attributes
                 document.querySelectorAll('[data-lang-ar]').forEach(el => {
                     const text = el.getAttribute(`data-lang-${lang}`);
                     if (text) el.innerHTML = text;
                 });
                 
-                // Update placeholders
                 document.querySelectorAll('[placeholder-ar]').forEach(el => {
                     const placeholderText = el.getAttribute(`placeholder-${lang}`);
                     if(placeholderText) el.setAttribute('placeholder', placeholderText);
                 });
                 
-                // Update titles
                 document.querySelectorAll('[title-ar]').forEach(el => {
                     const titleText = el.getAttribute(`title-${lang}`);
                     if(titleText) el.setAttribute('title', titleText);
                 });
 
-                // Update page title
                 document.title = document.querySelector('title').getAttribute(`data-lang-${lang}`);
-                
-                // Save preference
                 localStorage.setItem('language', lang);
             }
 
@@ -335,7 +368,6 @@
                 setLanguage(newLang);
             });
 
-            // Load saved language or default to Arabic
             const savedLang = localStorage.getItem('language');
             setLanguage(savedLang || 'ar');
 
@@ -347,13 +379,24 @@
             // --- Scroll to Top Button ---
             const scrollToTopBtn = document.getElementById('scrollToTopBtn');
             window.onscroll = () => {
-                if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                    scrollToTopBtn.style.display = "block";
-                } else {
-                    scrollToTopBtn.style.display = "none";
-                }
+                scrollToTopBtn.style.display = (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) ? "block" : "none";
             };
             scrollToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+            // --- Payment Section Accordion ---
+            const paymentToggle = document.getElementById('payment-toggle');
+            const paymentDetails = document.getElementById('payment-details');
+            const paymentChevron = document.getElementById('payment-chevron');
+
+            paymentToggle.addEventListener('click', () => {
+                if (paymentDetails.style.maxHeight) {
+                    paymentDetails.style.maxHeight = null;
+                    paymentChevron.classList.remove('rotate-180');
+                } else {
+                    paymentDetails.style.maxHeight = paymentDetails.scrollHeight + "px";
+                    paymentChevron.classList.add('rotate-180');
+                }
+            });
 
             // --- Contact Form to WhatsApp ---
             const contactForm = document.getElementById('contact-form');
@@ -364,7 +407,6 @@
                 const message = document.getElementById('message').value;
                 const whatsappNumber = "201022679250";
                 
-                // Message template
                 let whatsappMessage = `*رسالة جديدة من موقع ehabgm.online*\n\n*الاسم:* ${name}\n*البريد الإلكتروني:* ${email}\n*الرسالة:*\n${message}`;
                 
                 const encodedMessage = encodeURIComponent(whatsappMessage);
@@ -372,6 +414,75 @@
                 
                 window.open(whatsappURL, '_blank');
                 contactForm.reset();
+            });
+
+            // --- EMIA API Feature: Marketing Post Generator ---
+            const generateIdeasBtn = document.getElementById('generate-ideas-btn');
+            const businessTypeInput = document.getElementById('business-type');
+            const ideasResultDiv = document.getElementById('ideas-result');
+            const ideasPlaceholder = document.getElementById('ideas-placeholder');
+            const loadingSpinner = document.getElementById('loading-spinner');
+
+            generateIdeasBtn.addEventListener('click', async () => {
+                const businessType = businessTypeInput.value.trim();
+                const lang = document.documentElement.getAttribute('lang') || 'ar';
+
+                if (!businessType) {
+                    const alertMsg = lang === 'ar' ? 'من فضلك، اكتب نوع مشروعك أولاً.' : 'Please enter your project type first.';
+                    ideasResultDiv.innerHTML = `<p class="text-red-500">${alertMsg}</p>`;
+                    if(ideasPlaceholder) ideasPlaceholder.style.display = 'none';
+                    return;
+                }
+
+                loadingSpinner.classList.remove('hidden');
+                ideasResultDiv.style.display = 'none';
+                if(ideasPlaceholder) ideasPlaceholder.style.display = 'none';
+                generateIdeasBtn.disabled = true;
+
+                try {
+                    const personaAr = `أنت EMIA، المساعد التسويقي الذكي لمنصة EhabGM. أسلوبك ودود واحترافي، وتستخدم اللهجة المصرية العامية مع الإيموجيات لجذب الانتباه. مهمتك هي كتابة محتوى تسويقي جاهز للنشر مباشرة. لا تقدم شروحات أو مقدمات، فقط المحتوى المطلوب.`;
+                    const taskAr = `العميل لديه نشاط تجاري وهو: "${businessType}". قم بكتابة منشور إعلاني احترافي ومقنع لهذا النشاط، جاهز للنشر على فيسبوك أو انستجرام. يجب أن يتضمن المنشور: عنوان جذاب، نص إعلاني قصير، دعوة واضحة للتواصل، وهاشتاجات مناسبة للسوق المصري.`;
+                    
+                    const personaEn = `You are EMIA, the smart marketing assistant for the EhabGM platform. Your style is friendly and professional. Your task is to write ready-to-publish marketing content. Do not provide explanations or introductions, only the required content.`;
+                    const taskEn = `A user has a business: "${businessType}". Write a professional and persuasive ad post for this business, ready to be published on Facebook or Instagram. The post must include: a catchy headline, short ad copy, a clear call to action, and relevant hashtags.`;
+
+                    const prompt = lang === 'ar' ? `${personaAr}\n\n${taskAr}` : `${personaEn}\n\n${taskEn}`;
+
+                    let chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
+                    const payload = { contents: chatHistory };
+                    const apiKey = ""; // The environment will provide the API key
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    const result = await response.json();
+                    
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        const text = result.candidates[0].content.parts[0].text;
+                        ideasResultDiv.innerHTML = text.replace(/\n/g, '<br>');
+                    } else {
+                         throw new Error("Invalid response structure from API.");
+                    }
+
+                } catch (error) {
+                    console.error("Error calling API:", error);
+                    const errorMsg = lang === 'ar' ? 'عذراً، حدث خطأ أثناء كتابة المنشور. يرجى المحاولة مرة أخرى.' : 'Sorry, an error occurred while writing the post. Please try again.';
+                    ideasResultDiv.innerHTML = `<p class="text-red-500">${errorMsg}</p>`;
+                } finally {
+                    loadingSpinner.classList.add('hidden');
+                    ideasResultDiv.style.display = 'block';
+                    generateIdeasBtn.disabled = false;
+                }
             });
         });
     </script>
