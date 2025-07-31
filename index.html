@@ -29,8 +29,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         html { scroll-behavior: smooth; }
-        body { font-family: 'Cairo', sans-serif; }
+        body { font-family: 'Cairo', sans-serif; overflow-x: hidden; }
 
+        /* Floating Buttons Styles */
         .floating-btn { position: fixed; z-index: 99; border: none; outline: none; color: white; cursor: pointer; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); transition: all 0.3s ease; }
         .floating-btn:hover { transform: scale(1.1); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2); }
         
@@ -43,17 +44,15 @@
         html[dir="rtl"] #chat-toggle-btn { right: 20px; left: auto; }
         html[dir="ltr"] #chat-toggle-btn { left: 20px; right: auto; }
 
+        /* General UI Styles */
         .copy-btn { transition: background-color 0.3s ease; }
-        
         #payment-details { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-in-out; }
-        
         .variation-btn, #listen-btn { opacity: 1; transition: opacity 0.3s ease; }
         .variation-btn:disabled, #listen-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
         /* Chatbot Styles */
         #chatbot-window { transition: transform 0.3s ease-out, opacity 0.3s ease-out; }
         #chatbot-window.hidden { transform: scale(0.95) translateY(10px); opacity: 0; pointer-events: none; }
-        
         #chat-messages-popup { scroll-behavior: smooth; }
         .message { max-width: 80%; padding: 0.75rem 1rem; border-radius: 18px; line-height: 1.5; word-wrap: break-word; }
         .user-message { background-color: #4F46E5; color: white; border-bottom-right-radius: 4px; align-self: flex-end; }
@@ -64,15 +63,23 @@
         .typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
         @keyframes bounce { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1.0); } }
 
+        /* Animation Styles */
+        .animated-section {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .animated-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <!-- All page content from previous version remains here... -->
-    <!-- Header, Hero, Services, EMIA, SEO, Ad Generator, Platform, Payment, Contact, Footer sections -->
-    <!-- ... -->
-    <!-- ... (The entire HTML content of the page is assumed to be here) ... -->
-     <!-- Header Section -->
+    <!-- =================================================================== -->
+    <!-- Header Section -->
+    <!-- =================================================================== -->
     <header class="bg-white shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
             <a href="#hero" class="flex items-center space-x-2 rtl:space-x-reverse">
@@ -80,16 +87,16 @@
                 <span class="text-2xl font-bold text-indigo-700">Ehab GM</span>
             </a>
             <div class="hidden md:flex items-center space-x-1 rtl:space-x-reverse text-lg">
-                <a href="#hero" class="text-gray-600 header-btn" data-lang-ar="الرئيسية" data-lang-en="Home">الرئيسية</a>
-                <a href="#services" class="text-gray-600 header-btn" data-lang-ar="خدماتنا" data-lang-en="Services">خدماتنا</a>
-                <a href="#emia-suggestions" class="text-gray-600 header-btn" data-lang-ar="مساعد EMIA" data-lang-en="EMIA Assistant">مساعد EMIA</a>
-                <a href="#seo-helper-section" class="text-gray-600 header-btn" data-lang-ar="مساعد SEO" data-lang-en="SEO Helper">مساعد SEO</a>
-                <a href="#ad-headline-generator" class="text-gray-600 header-btn" data-lang-ar="عناوين الإعلانات" data-lang-en="Ad Headlines">عناوين الإعلانات</a>
-                <a href="#payment" class="text-gray-600 header-btn" data-lang-ar="طرق الدفع" data-lang-en="Payment">طرق الدفع</a>
-                <a href="#contact" class="text-gray-600 header-btn header-btn-active" data-lang-ar="اتصل بنا" data-lang-en="Contact Us">اتصل بنا</a>
+                <a href="#hero" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md transition" data-lang-ar="الرئيسية" data-lang-en="Home">الرئيسية</a>
+                <a href="#services" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md transition" data-lang-ar="خدماتنا" data-lang-en="Services">خدماتنا</a>
+                <a href="#emia-suggestions" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md transition" data-lang-ar="مساعد EMIA" data-lang-en="EMIA Assistant">مساعد EMIA</a>
+                <a href="#seo-helper-section" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md transition" data-lang-ar="مساعد SEO" data-lang-en="SEO Helper">مساعد SEO</a>
+                <a href="#ad-headline-generator" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md transition" data-lang-ar="عناوين الإعلانات" data-lang-en="Ad Headlines">عناوين الإعلانات</a>
+                <a href="#payment" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md transition" data-lang-ar="طرق الدفع" data-lang-en="Payment">طرق الدفع</a>
+                <a href="#contact" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md transition" data-lang-ar="اتصل بنا" data-lang-en="Contact Us">اتصل بنا</a>
             </div>
             <div class="flex items-center space-x-4 rtl:space-x-reverse">
-                 <button id="lang-switcher" class="text-indigo-600 font-semibold focus:outline-none border-2 border-indigo-500 rounded-full w-10 h-10 flex items-center justify-center">EN</button>
+                 <button id="lang-switcher" class="text-indigo-600 font-semibold focus:outline-none border-2 border-indigo-500 rounded-full w-10 h-10 flex items-center justify-center hover:bg-indigo-50 transition">EN</button>
                 <div class="md:hidden">
                     <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
@@ -108,7 +115,9 @@
         </div>
     </header>
 
+    <!-- =================================================================== -->
     <!-- Hero Section -->
+    <!-- =================================================================== -->
     <section id="hero" class="bg-gradient-to-r from-indigo-700 to-purple-600 text-white py-20 md:py-32 flex items-center min-h-screen">
         <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
             <div class="md:w-1/2 text-center md:text-right mb-10 md:mb-0">
@@ -129,27 +138,29 @@
         </div>
     </section>
 
+    <!-- =================================================================== -->
     <!-- Services Section -->
-    <section id="services" class="py-16 md:py-24 bg-white">
+    <!-- =================================================================== -->
+    <section id="services" class="py-16 md:py-24 bg-white animated-section">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-12 text-gray-900" data-lang-ar="خدماتنا الرقمية المتكاملة" data-lang-en="Our Integrated Digital Services">خدماتنا الرقمية المتكاملة</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                 <div class="bg-gray-50 rounded-lg shadow-lg p-8 text-center transform hover:scale-105 transition duration-300 border-b-4 border-indigo-600">
+                 <div class="bg-gray-50 rounded-lg shadow-lg p-8 text-center transform hover:-translate-y-2 transition duration-300 border-b-4 border-indigo-600">
                     <div class="text-indigo-600 mb-4"><i class="fas fa-palette fa-4x"></i></div>
                     <h3 class="text-2xl font-semibold mb-4" data-lang-ar="تصميم جرافيك احترافي" data-lang-en="Professional Graphic Design">تصميم جرافيك احترافي</h3>
                     <p class="text-gray-600" data-lang-ar="تصميم شعارات وهوية بصرية، بوستات سوشيال ميديا، وتصميمات PNG عالية الجودة تعكس علامتك التجارية." data-lang-en="Logo design, visual identity, social media posts, and high-quality PNG designs that reflect your brand.">تصميم شعارات وهوية بصرية، بوستات سوشيال ميديا، وتصميمات PNG عالية الجودة تعكس علامتك التجارية.</p>
                 </div>
-                <div class="bg-gray-50 rounded-lg shadow-lg p-8 text-center transform hover:scale-105 transition duration-300 border-b-4 border-purple-600">
+                <div class="bg-gray-50 rounded-lg shadow-lg p-8 text-center transform hover:-translate-y-2 transition duration-300 border-b-4 border-purple-600">
                     <div class="text-purple-600 mb-4"><i class="fas fa-bullhorn fa-4x"></i></div>
                     <h3 class="text-2xl font-semibold mb-4" data-lang-ar="إدارة الإعلانات الممولة" data-lang-en="Paid Ads Management">إدارة الإعلانات الممولة</h3>
                     <p class="text-gray-600" data-lang-ar="إدارة حملات إعلانية ناجحة على فيسبوك وإنستجرام وجوجل، مع استهداف دقيق للجمهور لزيادة عائد الاستثمار." data-lang-en="Managing successful ad campaigns on Facebook, Instagram, and Google with precise audience targeting to increase ROI.">إدارة حملات إعلانية ناجحة على فيسبوك وإنستجرام وجوجل، مع استهداف دقيق للجمهور لزيادة عائد الاستثمار.</p>
                 </div>
-                <div class="bg-gray-50 rounded-lg shadow-lg p-8 text-center transform hover:scale-105 transition duration-300 border-b-4 border-teal-600">
+                <div class="bg-gray-50 rounded-lg shadow-lg p-8 text-center transform hover:-translate-y-2 transition duration-300 border-b-4 border-teal-600">
                     <div class="text-teal-600 mb-4"><i class="fas fa-search-dollar fa-4x"></i></div>
                     <h3 class="text-2xl font-semibold mb-4" data-lang-ar="تحسين محركات البحث (SEO)" data-lang-en="Search Engine Optimization (SEO)">تحسين محركات البحث (SEO)</h3>
                     <p class="text-gray-600" data-lang-ar="استراتيجيات تسويق سيو متقدمة لمساعدة موقعك ومتجرك الإلكتروني على تصدر نتائج البحث في جوجل." data-lang-en="Advanced SEO marketing strategies to help your website and e-store rank higher in Google search results.">استراتيجيات تسويق سيو متقدمة لمساعدة موقعك ومتجرك الإلكتروني على تصدر نتائج البحث في جوجل.</p>
                 </div>
-                <div class="bg-gray-50 rounded-lg shadow-lg p-8 text-center transform hover:scale-105 transition duration-300 border-b-4 border-orange-600">
+                <div class="bg-gray-50 rounded-lg shadow-lg p-8 text-center transform hover:-translate-y-2 transition duration-300 border-b-4 border-orange-600">
                     <div class="text-orange-600 mb-4"><i class="fas fa-store fa-4x"></i></div>
                     <h3 class="text-2xl font-semibold mb-4" data-lang-ar="تصميم المتاجر الإلكترونية" data-lang-en="E-commerce Design">تصميم المتاجر الإلكترونية</h3>
                     <p class="text-gray-600" data-lang-ar="إنشاء وتصميم متجر إلكتروني احترافي مع بوابات دفع آمنة وتجربة مستخدم مميزة لزيادة مبيعاتك." data-lang-en="Creating and designing a professional e-store with secure payment gateways and a great user experience to increase your sales.">إنشاء وتصميم متجر إلكتروني احترافي مع بوابات دفع آمنة وتجربة مستخدم مميزة لزيادة مبيعاتك.</p>
@@ -158,8 +169,10 @@
         </div>
     </section>
 
+    <!-- =================================================================== -->
     <!-- EMIA Suggestions Section -->
-    <section id="emia-suggestions" class="py-16 md:py-24 bg-gray-100">
+    <!-- =================================================================== -->
+    <section id="emia-suggestions" class="py-16 md:py-24 bg-gray-100 animated-section">
         <div class="container mx-auto px-4">
             <div class="text-center max-w-3xl mx-auto">
                 <h2 class="text-4xl font-bold mb-4 text-gray-900" data-lang-ar="✍️ محتوى تسويقي من مساعدك EMIA" data-lang-en="✍️ Marketing Content by EMIA">✍️ محتوى تسويقي من مساعدك EMIA</h2>
@@ -198,8 +211,10 @@
         </div>
     </section>
 
+    <!-- =================================================================== -->
     <!-- SEO Helper Section -->
-    <section id="seo-helper-section" class="py-16 md:py-24 bg-white">
+    <!-- =================================================================== -->
+    <section id="seo-helper-section" class="py-16 md:py-24 bg-white animated-section">
         <div class="container mx-auto px-4">
             <div class="text-center max-w-3xl mx-auto">
                 <h2 class="text-4xl font-bold mb-4 text-gray-900" data-lang-ar="🔍 مساعد SEO للكلمات المفتاحية" data-lang-en="🔍 SEO Keyword Helper">🔍 مساعد SEO للكلمات المفتاحية</h2>
@@ -227,8 +242,10 @@
         </div>
     </section>
 
+    <!-- =================================================================== -->
     <!-- Ad Headline Generator Section -->
-    <section id="ad-headline-generator" class="py-16 md:py-24 bg-gray-100">
+    <!-- =================================================================== -->
+    <section id="ad-headline-generator" class="py-16 md:py-24 bg-gray-100 animated-section">
         <div class="container mx-auto px-4">
             <div class="text-center max-w-3xl mx-auto">
                 <h2 class="text-4xl font-bold mb-4 text-gray-900" data-lang-ar="📢 مولّد عناوين الإعلانات" data-lang-en="📢 Ad Headline Generator">📢 مولّد عناوين الإعلانات</h2>
@@ -256,8 +273,10 @@
         </div>
     </section>
     
+    <!-- =================================================================== -->
     <!-- EMIA Platform & AI Integration Section -->
-    <section id="emia-platform" class="py-16 md:py-24 bg-white">
+    <!-- =================================================================== -->
+    <section id="emia-platform" class="py-16 md:py-24 bg-white animated-section">
         <div class="container mx-auto px-4 flex flex-col md:flex-row-reverse items-center justify-between gap-12">
             <div class="md:w-1/2 flex justify-center">
                  <img src="https://i.postimg.cc/s2H4SnD0/1-21.jpg" alt="منصة EMIA V1.0 - المسوق الذكي" class="rounded-lg shadow-xl transform hover:scale-105 transition duration-500">
@@ -267,9 +286,11 @@
                 <p class="text-lg text-gray-700 mb-6" data-lang-ar="منصتنا المطورة EMIA تستخدم أحدث نماذج الذكاء الاصطناعي لتقديم تحليلات دقيقة، استهداف متقدم للجمهور، وتوصيات ذكية لزيادة عائد استثمارك. 📈" data-lang-en="Our advanced EMIA platform uses the latest AI models to provide accurate analytics, advanced audience targeting, and smart recommendations to increase your ROI. 📈">منصتنا المطورة EMIA تستخدم أحدث نماذج الذكاء الاصطناعي لتقديم تحليلات دقيقة، استهداف متقدم للجمهور، وتوصيات ذكية لزيادة عائد استثمارك. 📈</p>
                 <div class="bg-gray-50 p-4 rounded-lg shadow-md">
                     <p class="font-semibold text-center mb-3" data-lang-ar="مدعوم بتقنيات:" data-lang-en="Powered by:">مدعوم بتقنيات:</p>
-                    <div class="flex justify-center items-center space-x-4 rtl:space-x-reverse">
+                    <div class="flex justify-center items-center space-x-6 rtl:space-x-reverse">
+                        <!-- Google Gemini Icon -->
                         <img src="https://www.gstatic.com/images/branding/googlelogo/1x/googlelogo_color_74x24dp.png" alt="Google Gemini" class="h-8">
-                        <img src="https://openai.com/assets/images/logo.svg" alt="OpenAI" class="h-8">
+                        <!-- OpenAI Icon (Fixed) -->
+                        <svg class="h-7 text-black" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>OpenAI</title><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-2.9039c-.2117-.5823-.4932-1.1242-.8392-1.6152a5.9847 5.9847 0 0 0-4.4346-3.5442c-.611-.1621-1.2428-.2432-1.874-.2432s-1.263.081-1.874.2432A5.9847 5.9847 0 0 0 7.31 5.3021a5.9847 5.9847 0 0 0-1.3549 4.519c.001.101.001.203.002.304v.002a5.9847 5.9847 0 0 0 .5156 2.9039c.2117.5823.4932 1.1242.8392 1.6152a5.9847 5.9847 0 0 0 4.4346 3.5442c.611.1621 1.2428.2432 1.874.2432s1.263-.081 1.874-.2432a5.9847 5.9847 0 0 0 4.4346-3.5442c.346-.491.6275-1.0329.8392-1.6152a5.9847 5.9847 0 0 0 .5137-2.9029v-.006a6.0132 6.0132 0 0 0 .004-.306zm-12.2326 5.8282a4.4883 4.4883 0 0 1-3.328-2.6565A4.4883 4.4883 0 0 1 5.62 8.0011a4.4883 4.4883 0 0 1 2.6565-1.1013 4.4883 4.4883 0 0 1 4.9912 1.1013 4.4883 4.4883 0 0 1 1.1013 4.9912 4.4883 4.4883 0 0 1-1.1013 2.6565 4.4883 4.4883 0 0 1-4.9912 1.1013 4.4883 4.4883 0 0 1-1.6645-.3335zm3.62-5.2268-1.08 1.8688-1.08 1.8688-1.08-1.8688-1.08-1.8688 1.08-1.8688 1.08-1.8688 1.08 1.8688 1.08 1.8688zM1.7181 9.8211a5.9847 5.9847 0 0 0 .5157 2.9039c.2117.5823.4932 1.1242.8392 1.6152A5.9847 5.9847 0 0 0 7.5076 17.884c.611.1621 1.2428.2432 1.874.2432v-1.5c-.5524 0-1.0942-.06-1.6152-.1824a4.4883 4.4883 0 0 1-3.328-2.6565 4.4883 4.4883 0 0 1-.3335-1.6645v-1.5a4.4883 4.4883 0 0 1 .3335-1.6645 4.4883 4.4883 0 0 1 3.328-2.6565c.521-.1224 1.0628-.1824 1.6152-.1824v-1.5c-.6312 0-1.263.081-1.874.2432A5.9847 5.9847 0 0 0 3.073 5.3021a5.9847 5.9847 0 0 0-1.3549 4.519zm16.9438 0a5.9847 5.9847 0 0 0-.5157-2.9039c-.2117-.5823-.4932-1.1242-.8392-1.6152A5.9847 5.9847 0 0 0 12.8724 1.758c-.611-.1621-1.2428-.2432-1.874-.2432v1.5c.5524 0 1.0942.06 1.6152.1824a4.4883 4.4883 0 0 1 3.328 2.6565 4.4883 4.4883 0 0 1 .3335 1.6645v1.5a4.4883 4.4883 0 0 1-.3335 1.6645 4.4883 4.4883 0 0 1-3.328 2.6565c-.521.1224-1.0628.1824-1.6152.1824v1.5c.6312 0 1.263-.081 1.874-.2432a5.9847 5.9847 0 0 0 4.4346-3.5442c.346-.491.6275-1.0329.8392-1.6152a5.9847 5.9847 0 0 0 .5137-2.9029v-.006a6.0132 6.0132 0 0 0 .004-.306z" fill="currentColor"/></svg>
                     </div>
                     <p class="text-center text-sm text-gray-500 mt-2" data-lang-ar="نستخدم النماذج المجانية والمتقدمة لضمان أفضل خدمة." data-lang-en="We use free and advanced models to ensure the best service.">نستخدم النماذج المجانية والمتقدمة لضمان أفضل خدمة.</p>
                 </div>
@@ -278,8 +299,10 @@
         </div>
     </section>
 
+    <!-- =================================================================== -->
     <!-- Payment Methods Section -->
-    <section id="payment" class="py-16 md:py-24 bg-gray-100">
+    <!-- =================================================================== -->
+    <section id="payment" class="py-16 md:py-24 bg-gray-100 animated-section">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto">
                 <button id="payment-toggle" class="w-full bg-white rounded-lg shadow-lg p-6 flex justify-between items-center text-2xl font-bold text-gray-900 transition hover:bg-gray-50">
@@ -293,7 +316,7 @@
                             <i class="fas fa-wallet fa-3x text-red-600 mb-4"></i>
                             <h3 class="text-2xl font-semibold mb-2" data-lang-ar="فودافون كاش" data-lang-en="Vodafone Cash">فودافون كاش</h3>
                             <p class="text-lg font-bold text-gray-800 mb-4" style="direction: ltr;">01022679250</p>
-                            <a href="http://vf.eg/vfcash?id=mt&qrId=rMAVF3" target="_blank" class="w-full inline-block bg-red-600 text-white font-bold py-2 px-4 rounded-full hover:bg-red-700 transition" data-lang-ar="دفع سريع" data-lang-en="Quick Pay">دفع سريع</a>
+                            <a href="http://vf.eg/vfcash?id=mt&qrId=rMAVF3" target="_blank" rel="noopener noreferrer" class="w-full inline-block bg-red-600 text-white font-bold py-2 px-4 rounded-full hover:bg-red-700 transition" data-lang-ar="دفع سريع" data-lang-en="Quick Pay">دفع سريع</a>
                         </div>
 
                         <!-- InstaPay -->
@@ -317,7 +340,9 @@
         </div>
     </section>
 
+    <!-- =================================================================== -->
     <!-- Contact Section -->
+    <!-- =================================================================== -->
     <section id="contact" class="py-16 md:py-24 bg-gradient-to-r from-indigo-700 to-purple-600 text-white">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-4xl font-bold mb-6" data-lang-ar="اطلب خدمتك الآن" data-lang-en="Request Your Service Now">اطلب خدمتك الآن</h2>
@@ -345,7 +370,9 @@
         </div>
     </section>
 
+    <!-- =================================================================== -->
     <!-- Footer Section -->
+    <!-- =================================================================== -->
     <footer class="bg-gray-900 text-white py-8">
         <div class="container mx-auto px-4">
             <div class="text-center md:flex md:justify-between md:items-center">
@@ -358,10 +385,13 @@
                     <a href="https://www.tiktok.com/@ehab.gm1" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition"><i class="fab fa-tiktok fa-lg"></i></a>
                 </div>
             </div>
-            <div class="text-center text-gray-500 mt-4 border-t border-gray-700 pt-4"><a href="#" class="hover:text-white" data-lang-ar="سياسة الخصوصية" data-lang-en="Privacy Policy">سياسة الخصوصية</a></div>
+            <div class="text-center text-gray-500 mt-4 border-t border-gray-700 pt-4"><a href="privacy.html" class="hover:text-white" data-lang-ar="سياسة الخصوصية" data-lang-en="Privacy Policy">سياسة الخصوصية</a></div>
         </div>
     </footer>
 
+    <!-- =================================================================== -->
+    <!-- Modals and Floating Buttons -->
+    <!-- =================================================================== -->
     <!-- Crypto Modal -->
     <div id="crypto-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center">
         <div class="bg-white rounded-lg shadow-xl p-8 max-w-lg w-full m-4 text-gray-800 relative">
@@ -416,21 +446,80 @@
     
     <script>
         // --- Generic AI Text Generation Function ---
-        async function generateAiContent(prompt, resultElement, placeholderElement, loadingElement, lang) {
-            // ... (previous function code)
+        async function generateAiContent(prompt, resultElement, placeholderElement, loadingElement, lang, previousContent = '') {
+            if (placeholderElement) placeholderElement.style.display = 'none';
+            loadingElement.style.display = 'block';
+            resultElement.innerHTML = '';
+
+            // Add previous content to the prompt if it exists
+            if (previousContent) {
+                prompt += `\n\nالنص الحالي هو:\n"${previousContent}"\n\nيرجى تعديل هذا النص بناءً على الطلب الجديد.`;
+            }
+
+            try {
+                const payload = { contents: [{ parts: [{ text: prompt }] }] };
+                const apiKey = "AIzaSyAK3LA-F1e7u0dxCZkVKTzfSR0AdO2ZHCU"; // Will be injected by the environment
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) throw new Error(`API Error: ${response.statusText}`);
+                
+                const result = await response.json();
+                
+                if (result.candidates?.[0]?.content?.parts?.[0]?.text) {
+                    let generatedText = result.candidates[0].content.parts[0].text.trim();
+                    // Remove any introductory text that the model might add
+                    generatedText = generatedText.replace(/^.*:\n\n/s, '');
+                    generatedText = generatedText.replace(/\n/g, '<br>');
+                    resultElement.innerHTML = generatedText;
+                } else {
+                    throw new Error('Invalid response structure from API.');
+                }
+            } catch (error) {
+                console.error("Error generating AI content:", error);
+                resultElement.innerText = lang === 'ar' ? 'عفواً، حدث خطأ. يرجى المحاولة مرة أخرى.' : 'Sorry, an error occurred. Please try again.';
+            } finally {
+                loadingElement.style.display = 'none';
+            }
         }
         
-        // --- Text-to-Speech (TTS) Functionality ---
-        // ... (previous function code)
-
-        // --- Copy to Clipboard Function ---
-        function copyToClipboard(elementId, button) {
-            // ... (previous function code)
-        }
-
         document.addEventListener('DOMContentLoaded', function() {
-            // --- Element Selectors for Page ---
-            // ... (all previous selectors)
+            // --- Element Selectors ---
+            const langSwitcher = document.getElementById('lang-switcher');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+            const paymentToggle = document.getElementById('payment-toggle');
+            const paymentDetails = document.getElementById('payment-details');
+            const paymentChevron = document.getElementById('payment-chevron');
+            const contactForm = document.getElementById('contact-form');
+            
+            // --- AI Tool Selectors ---
+            const generateIdeasBtn = document.getElementById('generate-ideas-btn');
+            const businessTypeInput = document.getElementById('business-type');
+            const ideasResult = document.getElementById('ideas-result');
+            const ideasPlaceholder = document.getElementById('ideas-placeholder');
+            const loadingSpinner = document.getElementById('loading-spinner');
+            const variationButtonsContainer = document.getElementById('variation-buttons');
+            const variationButtons = document.querySelectorAll('.variation-btn');
+            const listenBtn = document.getElementById('listen-btn');
+
+            const generateKeywordsBtn = document.getElementById('generate-keywords-btn');
+            const seoTopicInput = document.getElementById('seo-topic');
+            const keywordsResult = document.getElementById('keywords-result');
+            const keywordsPlaceholder = document.getElementById('keywords-placeholder');
+            const seoLoadingSpinner = document.getElementById('seo-loading-spinner');
+
+            const generateHeadlinesBtn = document.getElementById('generate-headlines-btn');
+            const adTopicInput = document.getElementById('ad-topic');
+            const headlinesResult = document.getElementById('headlines-result');
+            const headlinesPlaceholder = document.getElementById('headlines-placeholder');
+            const headlineLoadingSpinner = document.getElementById('headline-loading-spinner');
 
             // --- CHATBOT SELECTORS ---
             const chatToggleBtn = document.getElementById('chat-toggle-btn');
@@ -440,88 +529,214 @@
             const messageInputPopup = document.getElementById('message-input-popup');
             const chatMessagesPopup = document.getElementById('chat-messages-popup');
             let conversationHistory = [];
-
-            // --- All previous page functionality (Language, Menu, Scroll, Payment, Forms, AI Tools) ---
-            // ... (all previous event listeners and functions)
             
+            let currentLang = 'ar';
+
+            // --- Language Switcher ---
+            function updateLanguageContent() {
+                const elements = document.querySelectorAll('[data-lang-ar], [data-lang-en]');
+                elements.forEach(el => {
+                    const text = el.getAttribute(`data-lang-${currentLang}`);
+                    if (text) el.innerHTML = text;
+                });
+                
+                const placeholders = document.querySelectorAll('[placeholder-ar], [placeholder-en]');
+                placeholders.forEach(el => {
+                    const text = el.getAttribute(`placeholder-${currentLang}`);
+                    if (text) el.setAttribute('placeholder', text);
+                });
+
+                document.documentElement.lang = currentLang;
+                document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+                langSwitcher.textContent = currentLang === 'ar' ? 'EN' : 'AR';
+            }
+
+            langSwitcher.addEventListener('click', () => {
+                currentLang = currentLang === 'ar' ? 'en' : 'ar';
+                updateLanguageContent();
+            });
+
+            // --- Mobile Menu ---
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // --- Scroll to Top Button ---
+            window.onscroll = () => {
+                if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                    scrollToTopBtn.style.display = "block";
+                } else {
+                    scrollToTopBtn.style.display = "none";
+                }
+            };
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // --- Payment Section Toggle ---
+            paymentToggle.addEventListener('click', () => {
+                const isHidden = paymentDetails.style.maxHeight === '0px';
+                paymentDetails.style.maxHeight = isHidden ? `${paymentDetails.scrollHeight}px` : '0px';
+                paymentChevron.classList.toggle('rotate-180', isHidden);
+            });
+
+            // --- Contact Form ---
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+                const whatsappMessage = `مرحباً، أنا ${name} (${email}).\n\nالطلب:\n${message}`;
+                const whatsappUrl = `https://wa.me/201022679250?text=${encodeURIComponent(whatsappMessage)}`;
+                window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+            });
+
+            // --- KNOWLEDGE BASE AND PROMPTS ---
+            const knowledgeBase = `
+                EhabGM | Online Services - Profile
+                - Location: Cairo, Egypt
+                - Services: Graphic Design, Digital Marketing, Ad Management, Branding, Web/E-commerce Design.
+                - Vision: Provide innovative creative solutions for the Egyptian and Gulf markets.
+                - Core Values: Quality, Professionalism, Integration, Responsiveness (24/7 support), Creativity.
+                
+                Service Details:
+                - Graphic Design: Logos, branding, social media posts (high-quality PNG), business cards, brochures, motion graphics. Tools: Adobe Photoshop, Illustrator, InDesign.
+                - Digital Marketing: Ad campaigns (Facebook, Instagram, TikTok, Google), audience targeting, email/SMS marketing, SEO.
+                - Web/E-commerce: Professional responsive websites, full e-commerce stores with payment gateways.
+                - Branding: Brand building, social media content creation.
+                - Extra Services: Marketing CV writing, consulting.
+                
+                Price List (EGP):
+                - Basic Logo: 150-300
+                - Pro Logo: 400-700
+                - Business Card: 150-300
+                - Social Media Banner: 100-250
+                - Print Poster: 250-500
+                - Social Media Package (10 designs): 800-1200
+                - Menu/Catalog: Starts at 500
+                - Pro Story (Insta/FB): 100-200
+                - Facebook/YouTube Cover: 150-250
+                - Simple Motion Graphic (15-30s): Starts at 800
+                
+                Contact & Links:
+                - WhatsApp: +201022679250
+                - Main Site: ehabgm.online
+                - Portfolio: ehabgm.mystrikingly.com
+                - Store: ehab.shop
+            `;
+
+            const postGeneratorPrompt = (topic) => `
+                Based on the following knowledge base:
+                ${knowledgeBase}
+
+                Act as a world-class social media manager. Your task is to generate a complete, ready-to-paste social media post for the following topic: "${topic}".
+
+                **Instructions (Strictly Follow):**
+                1.  **Output ONLY the post content.** Do not include any explanations, introductions, or titles like "Here is the post:".
+                2.  **Structure:**
+                    * **Catchy Headline:** Start with a compelling question or statement with a relevant emoji 🚀.
+                    * **Body:** Briefly explain the service/offer, focusing on benefits.
+                    * **Features:** Use a bulleted list (with emojis like ✅ or ✨) to highlight 3-4 key features.
+                    * **Call to Action (CTA):** End with a clear, strong CTA.
+                    * **Hashtags:** Include 5 relevant, popular hashtags.
+                3.  **Tone:** Professional, friendly, and persuasive. Use emojis naturally.
+            `;
+
+            const seoGeneratorPrompt = (topic) => `
+                Based on the following knowledge base:
+                ${knowledgeBase}
+
+                Act as a top-tier SEO expert. Your task is to generate a structured list of keywords for the following topic: "${topic}".
+
+                **Instructions (Strictly Follow):**
+                1.  **Output ONLY the keyword list.** Do not include any explanations or introductions.
+                2.  **Structure the output with these exact headings:**
+                    * **كلمات مفتاحية أساسية 🎯**
+                    * **كلمات مفتاحية طويلة 🔍**
+                    * **كلمات مفتاحية محلية (مصر) 🇪🇬**
+                    * **كلمات على شكل أسئلة ❓**
+                3.  Provide 3-5 relevant keywords under each category. Use emojis next to the headings as shown.
+            `;
+
+            const headlineGeneratorPrompt = (topic) => `
+                Based on the following knowledge base:
+                ${knowledgeBase}
+
+                Act as an expert copywriter. Your task is to generate 5 catchy and persuasive ad headlines for the following product/service: "${topic}".
+
+                **Instructions (Strictly Follow):**
+                1.  **Output ONLY a numbered list of the 5 headlines.** Do not include any explanations or introductions.
+                2.  **Style:** Make them short, direct, and use different psychological angles (e.g., benefit-driven, curiosity, scarcity, question).
+                3.  Use emojis where appropriate to increase engagement.
+            `;
+
+            // --- AI Tool: Social Media Post Generator ---
+            generateIdeasBtn.addEventListener('click', () => {
+                const topic = businessTypeInput.value;
+                if (!topic) return;
+                const prompt = postGeneratorPrompt(topic);
+                generateAiContent(prompt, ideasResult, ideasPlaceholder, loadingSpinner, currentLang);
+                variationButtonsContainer.classList.remove('hidden');
+            });
+            
+            // --- AI Tool: Post Variations ---
+            variationButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const style = button.dataset.style;
+                    const currentText = ideasResult.innerText;
+                    if (!currentText) return;
+                    const prompt = `
+                        أعد صياغة النص التالي ليكون بأسلوب "${style}". يجب أن يكون الناتج هو النص المعاد صياغته فقط.
+                        النص الأصلي: "${currentText}"
+                    `;
+                    generateAiContent(prompt, ideasResult, null, loadingSpinner, currentLang, currentText);
+                });
+            });
+
+            // --- AI Tool: SEO Keyword Generator ---
+            generateKeywordsBtn.addEventListener('click', () => {
+                const topic = seoTopicInput.value;
+                if (!topic) return;
+                const prompt = seoGeneratorPrompt(topic);
+                generateAiContent(prompt, keywordsResult, keywordsPlaceholder, seoLoadingSpinner, currentLang);
+            });
+
+            // --- AI Tool: Ad Headline Generator ---
+            generateHeadlinesBtn.addEventListener('click', () => {
+                const topic = adTopicInput.value;
+                if (!topic) return;
+                const prompt = headlineGeneratorPrompt(topic);
+                generateAiContent(prompt, headlinesResult, headlinesPlaceholder, headlineLoadingSpinner, currentLang);
+            });
+
             // --- CHATBOT LOGIC ---
             const systemPrompt = `
-                أنت مساعد تصميم خارق الذكاء، دائم وديناميكي، تم تعيينك كمصمم جرافيك رئيسي ضمن فريق ehabgm | Online Services.
-                تمت برمجتك لتكون عقلًا بصريًا احترافيًا متكاملًا، تفكر، تحلل، تبتكر، وتنتج تصميمات حقيقية قابلة للطباعة أو النشر بجودة استوديو عالمي.
+                You are "Jimmy," the official AI assistant for Ehab GM Online Services. You are an expert in graphic design and digital marketing. Your entire knowledge base is provided below.
                 
-                ---
+                **Core Instructions:**
+                1.  **Identity:** You are "Jimmy." Always maintain this persona.
+                2.  **Tone:** Be extremely friendly, professional, and helpful. Use a natural Egyptian Arabic dialect. Use emojis to make the conversation feel warm and personal.
+                3.  **Goal:** Help users understand services, prices, and processes. Make it easy and enjoyable for them to get the information they need.
+                4.  **Knowledge:** Base ALL your answers on the knowledge base provided. Do not invent services or prices.
+                5.  **Structure:** When providing lists (like services or prices), use bullet points (e.g., with 🎨 or 📢) to make the information clear and easy to read.
+                6.  **Escalation:** Only transfer the user to "Ehab" if they explicitly ask for him or express serious dissatisfaction.
                 
-                🎯 هدفك:
-                تقديم جميع خدمات التصميم الجرافيكي بذكاء استباقي ودقة عالية، ودعم جميع مشاريع ehabgm بجودة احترافية، مع فهم فوري ودقيق لأي محتوى أو وصف مرسل، دون الحاجة لتفاصيل مملة.
-                
-                ---
-                
-                🚀 قدراتك الذكية والمتقدمة (السكريبت الخارق والفريد لـ EhabGM Online Services):
-                
-                ### 🟣 المهمة الأساسية
-                أنا *جيمي، المساعد الشخصي الذكي لـ **EhabGM Online Services*. مهمتي:
-                - أفهم طلباتك بدقة وأوجهك للخدمة المناسبة بسرعة.
-                - أقدم ردود احترافية، ودودة، ومظبوطة حسب احتياجاتك.
-                - أقترح أفكار ذكية وخدمات إضافية تناسبك.
-                - لو قلت "عاوز إيهاب" أو اشتكيت، هتوقف فورًا وأحولك للدعم البشري.
-                - أتعلم من كل محادثة عشان أكون أذكى وأسرع كل مرة.
-                
-                ### 🟣 الترحيب الذكي
-                - *صباح الخير يا نجم!* 🌞 معاك جيمي من EhabGM، جاهز أساعدك بكل طاقتي.
-                - *مساء الجمال!* 🌙 متاح 24/7 عشانك، قولي إيه في دماغك؟
-                - *أهلاً بيك يا بطل!* 🚀 ابعتلي طلبك (تصميم، إعلان، متجر...) وهنقلع معاك فورًا!
-                
-                ### 🟣 الخدمات الرئيسية وأسعارها
-                #### 🎨 التصميم الجرافيكي
-                - *شعار احترافي*: من 500 جنيه - تصميم يعبر عن شخصيتك.
-                - *هوية بصرية كاملة*: من 1500 جنيه - شعار + كروت + بانرات.
-                - *بوست سوشيال ميديا*: من 100 جنيه - ثابت أو موشن.
-                - *كارت شخصي*: من 150 جنيه - جاهز للطباعة بجودة عالية.
-                
-                #### 📢 الإعلانات والتسويق
-                - *إعلان ممول لبوست*: من 350 جنيه - ترويج على فيسبوك أو إنستجرام.
-                - *إدارة حملة شهرية*: من 1000 جنيه - تخطيط وتحليل شامل.
-                
-                #### 🛒 المتاجر الإلكترونية
-                - *متجر إلكتروني*: من 3000 جنيه - تصميم متكامل مع بوابات دفع.
-                
-                #### 🔍 خدمات إضافية
-                - *SEO*: من 500 جنيه - عشان تتصدر جوجل.
-                - *سيرة ذاتية احترافية*: من 150 جنيه - تصميم PDF يلفت الأنظار.
-                
-                ### 🟣 نظام العمل
-                1. بنعملك *بروفة أولية* تشوفها وتقول رأيك أو تعدل. ✍️
-                2. بتدفع بعد ما توافق على البروفة. 💸
-                3. بنسلمك الملفات النهائية (صورة + PDF) بأعلى جودة. ✅
-                
-                ### 🟣 طرق الدفع
-                - *فودافون كاش*: 01022679250
-                - *إنستا باي*: ehab5199 أو 01022679250
-                - *تحويل بنكي*: التفاصيل بتتظبط لما نتفق.
-                
-                ### 🟣 بيانات التواصل
-                - *واتساب*: +201022679250
-                - *الموقع*: ehabgm.online
-                - *تابعنا*: فيسبوك | إنستجرام
-                
-                ### 🟣 تعليمات داخلية للبوت – لا تُعرض للمستخدم
-                - تصرّف كأنك مساعد شخصي ذكي محترف وودود.
-                - استخدم إيموجي طبيعي وغير مبالغ فيه.
-                - الردود قصيرة، مباشرة، وواضحة.
-                - تحدد لهجة الرد حسب لغة العميل: (عامية مصرية / فصحى / إنجليزي / خليجي).
-                - لا تكرّر نفس الرد خلال 60 دقيقة إلا لو العميل أرسل رسالة جديدة.
-                - لو كتب العميل (بكام، السعر، كام، التكلفة)، اذكر السعر من القائمة الرسمية فقط.
-                - لو كتب (عايز إيهاب، عاوز إيهاب) → توقف الرد فورًا وأرسل إشعار لإيهاب.
-                - لو اشتكى (مش عاجبني، مستاء) → توقف الرد وأرسل إشعار لإيهاب.
-                - لو طلب شغل سابق → أرسل رابط الأعمال: ehabgm.mystrikingly.com
-                - لا تشارك روابط خارجية غير معتمدة.
-                - لا تعطي أي معلومة مش موجودة في قاعدة بيانات EhabGM.
-                - لا تطلب بيانات شخصية حساسة.
-                - لا تحوّل للمدير إلا إذا العميل طلب التواصل مع "إيهاب" بنفسه.
+                --- KNOWLEDGE BASE ---
+                ${knowledgeBase}
+                --- END KNOWLEDGE BASE ---
+
+                **Example Interaction:**
+                User: "بكام تصميم اللوجو؟"
+                Your response: "أهلاً بيك! تصميم اللوجو الاحترافي عندنا بيبدأ من 400 جنيه وبيكون تصميم مميز يعبر عنك تمامًا. ✨ لو حابب نبدأ، قولّي بس! 😉"
             `;
 
             function toggleChatbot() {
                 chatbotWindow.classList.toggle('hidden');
+                if (!chatbotWindow.classList.contains('hidden') && conversationHistory.length === 0) {
+                    const welcomeMessage = "أهلاً بيك! 🚀 معاك جيمي، مساعدك الذكي من EhabGM. إزاي أقدر أساعدك النهاردة؟ (تصميم، إعلان، أسعار...)"
+                    appendMessageToPopup(welcomeMessage, 'bot');
+                    conversationHistory.push({ role: "model", parts: [{ text: welcomeMessage }] });
+                }
             }
 
             chatToggleBtn.addEventListener('click', toggleChatbot);
@@ -551,13 +766,17 @@
 
             async function getBotResponse(userMessage) {
                 showTypingIndicatorInPopup();
-                conversationHistory.push({ role: "user", parts: [{ text: userMessage }] });
-
-                const apiPrompt = `${systemPrompt}\n\n--- Conversation History ---\n${conversationHistory.map(turn => `${turn.role === 'user' ? 'العميل' : 'المساعد'}: ${turn.parts[0].text}`).join('\n')}\nالمساعد:`;
                 
+                const contextualPrompt = [
+                    { role: "user", parts: [{ text: systemPrompt }] },
+                    { role: "model", parts: [{ text: "تمام، أنا جيمي وجاهز للمساعدة باللهجة المصرية." }] },
+                    ...conversationHistory,
+                    { role: "user", parts: [{ text: userMessage }] }
+                ];
+
                 try {
-                    const payload = { contents: [{ parts: [{ text: apiPrompt }] }] };
-                    const apiKey = "AIzaSyAK3LA-F1e7u0dxCZkVKTzfSR0AdO2ZHCU"; // Will be injected
+                    const payload = { contents: contextualPrompt };
+                    const apiKey = ""; // Will be injected
                     const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
 
                     const response = await fetch(apiUrl, {
@@ -574,6 +793,7 @@
                     if (result.candidates?.[0]?.content?.parts?.[0]?.text) {
                         const botResponse = result.candidates[0].content.parts[0].text.trim();
                         appendMessageToPopup(botResponse, 'bot');
+                        conversationHistory.push({ role: "user", parts: [{ text: userMessage }] });
                         conversationHistory.push({ role: "model", parts: [{ text: botResponse }] });
                     } else {
                         throw new Error('Invalid response structure.');
@@ -595,10 +815,24 @@
                 }
             });
 
-            // Initial welcome message for the chatbot
-            const welcomeMessage = "أهلاً بيك! 🚀 معاك جيمي، مساعدك الذكي من EhabGM. قولي إيه في دماغك؟ (تصميم، إعلان، متجر...)";
-            appendMessageToPopup(welcomeMessage, 'bot');
-            conversationHistory.push({ role: "model", parts: [{ text: welcomeMessage }] });
+            // --- Scroll Animation Logic ---
+            const animatedSections = document.querySelectorAll('.animated-section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            animatedSections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Initialize page language
+            updateLanguageContent();
         });
     </script>
 </body>
