@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EhabGM Online Services | مساعدك الذكي جيمي</title>
+    <style>
+        :root {
+            --primary-color: #6a11cb;
+            --secondary-color: #2575fc;
+            --background-color: #f4f7f6;
+            --text-color: #333;
+            --card-bg: #ffffff;
+            --bot-message-bg: #e9e9eb;
+            --user-message-bg: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            --font-family: 'Tajawal', sans-serif;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+        
+        body {
+            font-family: var(--font-family);
+            margin: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        header {
+            background: var(--card-bg);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--primary-color);
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        header h1 {
+            margin: 0;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        header p {
+            margin: 5px 0 0;
+            color: var(--secondary-color);
+        }
+        .section {
+            background: var(--card-bg);
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+        /* Chatbot Styles */
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            height: 500px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .chat-box {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background-color: #f9f9f9;
+        }
+        .chat-input-container {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+            background: var(--card-bg);
+        }
+        .chat-input {
+            flex-grow: 1;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            font-family: var(--font-family);
+            font-size: 1em;
+        }
+        .send-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            margin-right: 10px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+        .message {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .message .text {
+            padding: 10px 15px;
+            border-radius: 18px;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+        .bot-message .text {
+            background-color: var(--bot-message-bg);
+            align-self: flex-start;
+            border-bottom-right-radius: 0;
+        }
+        .user-message .text {
+            background: var(--user-message-bg);
+            color: white;
+            align-self: flex-end;
+            border-bottom-left-radius: 0;
+        }
+        /* Services Styles */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .service-card {
+            background: #fdfdff;
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .service-card .icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        .service-card h3 {
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        .service-card .price {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.2em;
+        }
+        /* Portfolio Styles */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .portfolio-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .portfolio-item img {
+            width: 100%;
+            display: block;
+        }
+        .portfolio-item .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        .portfolio-item:hover .overlay {
+            transform: translateY(0);
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            background: var(--primary-color);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>EhabGM | Online Services</h1>
+        <p>مصمم جرافيك ومتخصص تسويق رقمي</p>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2 class="section-title">مساعدك الذكي جيمي 🤖</h2>
+            <div class="chat-container">
+                <div class="chat-box" id="chat-box">
+                    </div>
+                <div class="chat-input-container">
+                    <input type="text" id="chat-input" class="chat-input" placeholder="اكتب طلبك هنا (مثلاً: عاوز لوجو)...">
+                    <button id="send-btn" class="send-btn">➤</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">خدماتنا الرئيسية 🎨</h2>
+            <div class="services-grid" id="services-container">
+                </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">بعض أعمالنا السابقة 🖼️</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://via.placeholder.com/300x200.png?text=Branding" alt="مشروع هوية بصرية">
+                    <div class="overlay">هوية بصرية كاملة</div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://via.placeholder.com/300x200.png?text=Social+Media" alt="تصميم سوشيال ميديا">
+                    <div class="overlay">تصميمات سوشيال ميديا</div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://via.placeholder.com/300x200.png?text=E-Store" alt="متجر إلكتروني">
+                    <div class="overlay">متجر إلكتروني</div>
+                </div>
+            </div>
+             <p style="text-align:center; margin-top:20px;">
+                <a href="https://ehabgm.mystrikingly.com" target="_blank" style="color: var(--primary-color); font-weight: bold;">شاهد المزيد من أعمالنا...</a>
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© جميع الحقوق محفوظة لـ EhabGM Online Services (2025)</p>
+        <p>
+            <a href="https://facebook.com/graphicdesiner1" style="color:white; margin: 0 10px;">فيسبوك</a> |
+            <a href="https://instagram.com/ehab.gm1" style="color:white; margin: 0 10px;">انستجرام</a> |
+            <a href="https://wa.me/201022679250" style="color:white; margin: 0 10px;">واتساب</a>
+        </p>
+    </footer>
+
+    <script>
+        // --- DATABASE & API CONFIGURATION ---
+        // ⚠️ تحذير أمني: هذه البيانات حساسة جداً. في بيئة الإنتاج (Production),
+        // يجب نقل هذه المفاتيح إلى خادم خلفي (Backend) واستخدام متغيرات البيئة (Environment Variables).
+        // لا تتركها أبداً في كود الواجهة الأمامية (Frontend).
+        
+        const supabaseConfig = {
+            url: "https://kcnsubwxwynckntemfqx.supabase.co",
+            apiKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtjbnN1Ynd4d3luY2tudGVtZnF4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM5OTQyNDUsImV4cCI6MjA2OTU3MDI0NX0.RBiOLn9cJkf_JOyLs54NHRmllfPTZM1UAFBanZkBYk8",
+            dbPassword: "P@ssw0rd" // ⚠️ لا يجب أن يكون هنا أبداً
+        };
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyALrleCY6KAHjtgIXff-kDFI011ftCRyfM",
+            authDomain: "ehabonlineservicecampaigns.firebaseapp.com",
+            projectId: "ehabonlineservicecampaigns",
+            storageBucket: "ehabonlineservicecampaigns.firebasestorage.app",
+            messagingSenderId: "971584507002",
+            appId: "1:971584507002:web:ee8ed1ef929c4298c13fc3"
+        };
+        
+        const apiKeys = {
+            gemini: "AIzaSyAK3LA-F1e7u0dxCZkVKTzfSR0AdO2ZHCU", // ⚠️ يجب أن يكون في الـ Backend
+            openai: "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", // ⚠️ يجب أن يكون في الـ Backend
+            greenApi: { // ⚠️ يجب أن يكون في الـ Backend
+                instanceId: "7103121490",
+                apiToken: "5302bc690deb405c9bd36048a27167e4c0baaa81616449d0d"
+            }
+        };
+
+        // --- SERVICES DATA ---
+        const services = {
+            "LOGO": { title: "🎨 تصميم شعار", description: "شعار احترافي مميز لهوية مشروعك.", price: 500, icon: "🎨" },
+            "BRANDING": { title: "🏢 هوية بصرية كاملة", description: "شعار + كارت شخصي + ألوان + خطوط + نماذج سوشيال.", price: 1500, icon: "🏢" },
+            "POST-SM": { title: "📱 بوست سوشيال ميديا", description: "تصميم بوست سوشيال ثابت أو متحرك.", price: 100, icon: "📱" },
+            "B-CARD": { title: "📇 كارت شخصي", description: "تصميم بطاقة عمل أنيقة.", price: 150, icon: "📇" },
+            "AD-BOOST": { title: "📢 إعلان ممول لبوست", description: "ترويج بوست واحد على الفيسبوك/انستجرام.", price: 350, icon: "📢" },
+            "AD-MGMT": { title: "📊 إدارة حملة شهرية", description: "إدارة كاملة لحملات ممولة.", price: 1000, icon: "📊" },
+            "E-STORE": { title: "🛒 متجر إلكتروني", description: "متجر متكامل للبيع أونلاين.", price: 2500, icon: "🛒" },
+            "WEB-SITE": { title: "🌐 موقع تعريفي", description: "موقع بسيط عن الشركة أو المشروع.", price: 1500, icon: "🌐" },
+            "SEO-ANAL": { title: "🔍 تحليل SEO", description: "تقرير SEO لموقعك.", price: 400, icon: "🔍" },
+            "CV-DESIGN": { title: "📄 سيرة ذاتية PDF", description: "تصميم سيرة ذاتية احترافية PDF.", price: 150, icon: "📄" }
+        };
+
+        // --- CHATBOT LOGIC ---
+        const chatBox = document.getElementById('chat-box');
+        const chatInput = document.getElementById('chat-input');
+        const sendBtn = document.getElementById('send-btn');
+        const servicesContainer = document.getElementById('services-container');
+
+        // Function to add a message to the chat box
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message', `${sender}-message`);
+            
+            const textDiv = document.createElement('div');
+            textDiv.classList.add('text');
+            textDiv.innerHTML = text; // Use innerHTML to render links and formatting
+            
+            messageDiv.appendChild(textDiv);
+            chatBox.appendChild(messageDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        // Function to handle bot responses
+        function botResponse(userMessage) {
+            const lowerCaseMessage = userMessage.toLowerCase();
+            let response = "عفواً، لم أفهم طلبك. يمكنك الاختيار من الخدمات أو توضيح طلبك أكثر. 🙏";
+
+            // Basic keyword matching
+            if (lowerCaseMessage.includes('شعار') || lowerCaseMessage.includes('لوجو')) {
+                response = `🎨 تمام يا فنان! نقدر نعمل شعار يعبر عن فكرتك تمامًا. ابعتلي اسم البراند + النشاط أو الفكرة المبدئية.`;
+            } else if (lowerCaseMessage.includes('اعلان') || lowerCaseMessage.includes('إعلان') || lowerCaseMessage.includes('حملة')) {
+                response = `📢 تمام! الإعلان الممول جاهز يتنفذ. عندك بوست جاهز ولا تحب نجهزه بالكامل؟`;
+            } else if (lowerCaseMessage.includes('موقع') || lowerCaseMessage.includes('متجر')) {
+                response = `💻 المواقع عندنا بتكون احترافية وسريعة. تحب موقع تعريفي ولا متجر متكامل؟`;
+            } else if (lowerCaseMessage.includes('بكام') || lowerCaseMessage.includes('سعر') || lowerCaseMessage.includes('تكلفة')) {
+                // Find service in message
+                let serviceFound = false;
+                for (const key in services) {
+                    const service = services[key];
+                    if (lowerCaseMessage.includes(service.title.split(' ')[1]) || lowerCaseMessage.includes(key.toLowerCase().split('-')[0])) {
+                         response = `💸 سعر خدمة <b>${service.title}</b> يبدأ من ${service.price} جنيه. التحديد النهائي بيكون على حسب التفاصيل والستايل. تحب أديك عرض مخصص؟ ✍️`;
+                         serviceFound = true;
+                         break;
+                    }
+                }
+                if (!serviceFound) {
+                    response = "عن سعر أي خدمة تسأل؟ يمكنك كتابة اسم الخدمة (مثلاً: سعر اللوجو).";
+                }
+            } else if (lowerCaseMessage.includes('شغل سابق') || lowerCaseMessage.includes('اعمالك') || lowerCaseMessage.includes('أعمالك')) {
+                response = `أكيد! 👇 دي عينات شغلنا السابقة: <a href="https://ehabgm.mystrikingly.com" target="_blank">ehabgm.mystrikingly.com</a>`;
+            } else if (lowerCaseMessage.includes('عاوز ايهاب') || lowerCaseMessage.includes('عايز إيهاب')) {
+                response = `🛑 حاضر! جاري تحويلك لإيهاب حالاً. سيتم التواصل معك في أقرب وقت.`;
+                // Here you would trigger a real notification to Ehab
+                notifyEhab("Client wants to speak with you.");
+            } else if (lowerCaseMessage.includes('شكرا') || lowerCaseMessage.includes('شكرًا')) {
+                response = `العفو! في خدمتك دايماً. 😊`;
+            } else if (lowerCaseMessage.includes('صباح الخير')) {
+                response = 'صباح النور! 🌞 معاك جيمي، إزاي أقدر أساعدك؟';
+            } else if (lowerCaseMessage.includes('مساء الخير')) {
+                response = 'مساء الجمال! 🌙 تحت أمرك.';
+            }
+
+            setTimeout(() => {
+                addMessage(response, 'bot');
+            }, 1000);
+        }
+        
+        // Event listener for send button
+        sendBtn.addEventListener('click', () => {
+            const userMessage = chatInput.value.trim();
+            if (userMessage) {
+                addMessage(userMessage, 'user');
+                botResponse(userMessage);
+                chatInput.value = '';
+            }
+        });
+
+        // Event listener for Enter key
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendBtn.click();
+            }
+        });
+
+        // Function to populate services
+        function populateServices() {
+            for (const key in services) {
+                const service = services[key];
+                const card = document.createElement('div');
+                card.classList.add('service-card');
+                card.innerHTML = `
+                    <div class="icon">${service.icon}</div>
+                    <h3>${service.title}</h3>
+                    <p>${service.description}</p>
+                    <div class="price">يبدأ من ${service.price} جنيه</div>
+                `;
+                servicesContainer.appendChild(card);
+            }
+        }
+        
+        // --- Placeholder functions for backend integration ---
+        // In a real application, these would make API calls to your backend server.
+        
+        function connectToDatabase() {
+            console.log("Connecting to Supabase/Firebase...");
+            // Use supabase-js or firebase-js library to connect
+            // const supabase = createClient(supabaseConfig.url, supabaseConfig.apiKey);
+            // firebase.initializeApp(firebaseConfig);
+            console.log("⚠️ This is a conceptual function. Real connection should be handled securely.");
+        }
+        
+        async function analyzeWithAI(text, tool = 'gemini') {
+            console.log(`Analyzing text with ${tool}: "${text}"`);
+            // This would be an API call to your backend, which then calls the AI API.
+            // Example:
+            // const response = await fetch('/api/analyze', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify({ text, tool })
+            // });
+            // const data = await response.json();
+            // return data.analysis;
+            return "تحليل مبدئي للنص...";
+        }
+
+        function notifyEhab(message) {
+            console.log(`--- NOTIFICATION TO EHAB ---`);
+            console.log(message);
+            console.log(`This could be an email, a push notification, or a WhatsApp message via GreenAPI.`);
+            // Example using a conceptual GreenAPI call
+            // sendWhatsAppMessage('EhabsNumber', message);
+            console.log(`--------------------------`);
+        }
+
+        // Initializing the page
+        document.addEventListener('DOMContentLoaded', () => {
+            populateServices();
+            const welcomeMessage = "أهلاً بيك يا بطل! 🚀 معاك جيمي من EhabGM. ابعتلي طلبك (تصميم، إعلان، متجر...) وهنقلع معاك فورًا!";
+            addMessage(welcomeMessage, 'bot');
+            connectToDatabase();
+        });
+
+    </script>
+</body>
+</html>
