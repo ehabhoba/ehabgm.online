@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://i.postimg.cc/J4QX3W0Y/logo.png" type="image/png">
+    
+    <!-- SEO Meta Tags -->
+    <title data-lang-ar="باقات التسويق الرقمي الاحترافية في مصر | Ehab GM" data-lang-en="Professional Digital Marketing Packages in Egypt | Ehab GM">باقات التسويق الرقمي الاحترافية في مصر | Ehab GM</title>
+    <meta name="description" content="Ehab GM يقدم باقات تسويق رقمي مرنة وإعلانات ممولة مصممة خصيصًا لجميع فئات المجتمع المصري. قم بإنشاء باقتك الخاصة، واحصل على تقديرات حقيقية للوصول، وابدأ حملتك الإعلانية اليوم.">
+    <meta name="keywords" content="تسويق رقمي في مصر, إعلانات ممولة, أسعار التسويق, باقات إعلانية, إدارة الحملات الإعلانية, تصميم جرافيك, Ehab GM, التسويق بالذكاء الاصطناعي, SEO في مصر, أسعار إعلانات فيسبوك">
+    <meta name="author" content="Ehab GM Online Services">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Ehab GM | باقات الأسعار التفاعلية">
+    <meta property="og:description" content="حلول متكاملة في التصميم الجرافيكي والتسويق الرقمي مدعومة بأحدث تقنيات الذكاء الاصطناعي.">
+    <meta property="og:url" content="https://ehabgm.online/pricing">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/J4QX3W0Y/logo.png">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Cairo for Arabic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Cairo', sans-serif; overflow-x: hidden; }
+
+        /* Floating Buttons Styles */
+        .floating-btn { position: fixed; z-index: 99; border: none; outline: none; color: white; cursor: pointer; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); transition: all 0.3s ease; }
+        .floating-btn:hover { transform: scale(1.1); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2); }
+        
+        #scrollToTopBtn { display: none; bottom: 90px; right: 20px; background-color: #4F46E5; width: 56px; height: 56px; font-size: 20px; }
+        #whatsapp-button { bottom: 20px; background-color: #25D366; width: 56px; height: 56px; font-size: 24px; }
+        #chat-button { bottom: 20px; left: 20px; background-color: #3B82F6; width: 56px; height: 56px; font-size: 24px; }
+        html[dir="rtl"] #whatsapp-button { left: 20px; right: auto; }
+        html[dir="ltr"] #whatsapp-button { right: 20px; left: auto; }
+        html[dir="rtl"] #chat-button { right: 20px; left: auto; }
+        html[dir="ltr"] #chat-button { left: 20px; right: auto; }
+
+        /* Interactive UI Styles */
+        input[type=range] { -webkit-appearance: none; width: 100%; height: 8px; background: #ddd; border-radius: 5px; outline: none; transition: background 0.2s; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 24px; height: 24px; border-radius: 50%; background: #4F46E5; cursor: pointer; border: 2px solid #fff; box-shadow: 0 0 4px rgba(0,0,0,0.25); }
+        input[type=range]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 50%; background: #4F46E5; cursor: pointer; border: 2px solid #fff; box-shadow: 0 0 4px rgba(0,0,0,0.25); }
+        input[type=checkbox] { -webkit-appearance: none; appearance: none; width: 24px; height: 24px; border: 2px solid #D1D5DB; border-radius: 6px; cursor: pointer; transition: all 0.2s; }
+        input[type=checkbox]:checked { background-color: #4F46E5; border-color: #4F46E5; }
+        input[type=checkbox]:checked:after { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: white; display: block; text-align: center; line-height: 20px; }
+
+        /* Animation Styles */
+        .animated-section { opacity: 0; transform: translateY(40px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .animated-section.is-visible { opacity: 1; transform: translateY(0); }
+        
+        /* Modal Styles */
+        .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.7); display: flex; justify-content: center; align-items: center; z-index: 1000; }
+        .modal-content { background-color: white; border-radius: 1rem; width: 95%; max-width: 800px; max-height: 90vh; overflow-y: auto; padding: 2rem; position: relative; }
+
+        /* Chat Pop-up Styles */
+        #chat-popup { position: fixed; bottom: 80px; right: 20px; width: 350px; height: 500px; background-color: white; border-radius: 1rem; box-shadow: 0 4px 20px rgba(0,0,0,0.2); z-index: 999; display: flex; flex-direction: column; transition: transform 0.3s ease-in-out; }
+        .chat-header { background-color: #4F46E5; color: white; padding: 1rem; border-top-left-radius: 1rem; border-top-right-radius: 1rem; display: flex; justify-content: space-between; align-items: center; }
+        .chat-messages { flex-grow: 1; padding: 1rem; overflow-y: auto; display: flex; flex-direction: column-reverse; }
+        .message-user { background-color: #DBEAFE; color: #1E3A8A; padding: 0.5rem 1rem; border-radius: 1rem 1rem 0 1rem; max-width: 80%; margin-left: auto; margin-bottom: 0.5rem; text-align: right; }
+        .message-bot { background-color: #E5E7EB; color: #1F2937; padding: 0.5rem 1rem; border-radius: 1rem 1rem 1rem 0; max-width: 80%; margin-right: auto; margin-bottom: 0.5rem; text-align: right; }
+        .typing-indicator { color: #6B7280; font-style: italic; margin-right: auto; margin-bottom: 0.5rem; text-align: right;}
+        html[dir="rtl"] #chat-popup { left: 20px; right: auto; }
+        html[dir="rtl"] .message-user { margin-left: 0; margin-right: auto; text-align: left; border-radius: 1rem 1rem 1rem 0; }
+        html[dir="rtl"] .message-bot { margin-right: 0; margin-left: auto; text-align: left; border-radius: 1rem 1rem 0 1rem; }
+        html[dir="rtl"] .typing-indicator { margin-right: 0; margin-left: auto; text-align: left;}
+        
+        .testimonial-icon { font-size: 4rem; color: #4F46E5; margin-bottom: 1rem; }
+        
+        /* New loading indicator for suggestions */
+        .loading-indicator { border: 4px solid rgba(0, 0, 0, 0.1); width: 36px; height: 36px; border-radius: 50%; border-left-color: #4F46E5; animation: spin 1s ease infinite; margin: auto; }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- =================================================================== -->
+    <!-- Header Section -->
+    <!-- =================================================================== -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-2 rtl:space-x-reverse">
+                <img src="https://i.postimg.cc/J4QX3W0Y/logo.png" alt="Ehab GM Logo" class="rounded-full w-12 h-12">
+                <span class="text-2xl font-bold text-indigo-700">Ehab GM</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-1 rtl:space-x-reverse text-lg">
+                <a href="#pricing" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md transition">الرئيسية</a>
+                <a href="#quick-launch-packages" class="text-indigo-600 font-bold px-3 py-2 rounded-md transition">الباقات الجاهزة</a>
+                <a href="#specialized-packages" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md transition">باقات الأعمال</a>
+                <a href="#testimonials" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md transition">آراء العملاء</a>
+                <a href="#video-guide" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md transition">الفيديو</a>
+            </div>
+            <div class="flex items-center space-x-4 rtl:space-x-reverse">
+                <button id="lang-switcher" class="text-indigo-600 font-semibold focus:outline-none border-2 border-indigo-500 rounded-full w-10 h-10 flex items-center justify-center hover:bg-indigo-50 transition">EN</button>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-2 shadow-lg">
+            <a href="#pricing" class="block px-4 py-2 text-gray-800 hover:bg-indigo-50">الرئيسية</a>
+            <a href="#quick-launch-packages" class="block px-4 py-2 text-indigo-600 font-bold hover:bg-indigo-50">الباقات الجاهزة</a>
+            <a href="#specialized-packages" class="block px-4 py-2 text-gray-800 hover:bg-indigo-50">باقات الأعمال</a>
+            <a href="#testimonials" class="block px-4 py-2 text-gray-800 hover:bg-indigo-50">آراء العملاء</a>
+            <a href="#video-guide" class="block px-4 py-2 text-gray-800 hover:bg-indigo-50">الفيديو</a>
+        </div>
+    </header>
+
+    <!-- =================================================================== -->
+    <!-- Pricing Hero Section -->
+    <!-- =================================================================== -->
+    <section id="pricing" class="py-16 md:py-24 bg-gradient-to-r from-indigo-700 to-purple-600 animated-section">
+        <div class="container mx-auto px-4 text-center text-white">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-6" data-lang-ar="باقات التسويق الرقمي" data-lang-en="Digital Marketing Packages">باقات التسويق الرقمي</h1>
+            <p class="text-lg md:text-xl opacity-90" data-lang-ar="باقات مرنة ومصداقية عالية لجميع عملائنا في السوق المصري." data-lang-en="Flexible and credible packages for all our clients in the Egyptian market.">باقات مرنة ومصداقية عالية لجميع عملائنا في السوق المصري.</p>
+            <!-- New button to open the modal -->
+            <button id="open-package-builder-modal" class="mt-8 bg-white text-indigo-700 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-200 transition transform hover:scale-105" data-lang-ar="صمم باقتك الخاصة" data-lang-en="Design Your Custom Package">صمم باقتك الخاصة</button>
+        </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- Interactive Package Builder Section (Moved to a Modal) -->
+    <!-- =================================================================== -->
+    <div id="package-builder-modal" class="modal-overlay hidden">
+        <div class="modal-content text-right">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-3xl font-bold text-gray-900" data-lang-ar="بناء باقتك المخصصة" data-lang-en="Build Your Custom Package">بناء باقتك المخصصة</h2>
+                <button id="close-package-builder-modal" class="text-gray-500 hover:text-gray-800 text-3xl transition">&times;</button>
+            </div>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-12" data-lang-ar="حدد ميزانيتك اليومية واختر المنصات الإعلانية، وسنقوم بحساب النتائج المتوقعة بدقة وشفافية." data-lang-en="Set your daily budget and choose advertising platforms, and we will accurately and transparently calculate the expected results.">
+                حدد ميزانيتك اليومية واختر المنصات الإعلانية، وسنقوم بحساب النتائج المتوقعة بدقة وشفافية.
+            </p>
+
+            <div class="bg-white rounded-xl p-8 md:p-12">
+                <!-- Daily Budget Slider -->
+                <div class="mb-10">
+                    <label for="daily-budget-slider" class="block text-xl font-bold text-gray-700 mb-4 text-center">
+                        <span data-lang-ar="الميزانية اليومية:" data-lang-en="Daily Budget:">الميزانية اليومية:</span> <span id="daily-budget-value" class="text-indigo-600">124</span> <span data-lang-ar="جنيه مصري" data-lang-en="EGP">جنيه مصري</span>
+                    </label>
+                    <input type="range" id="daily-budget-slider" min="124" max="5000" step="10" value="124">
+                </div>
+
+                <!-- Platform Selection -->
+                <div class="mb-10">
+                    <h3 class="text-2xl font-bold text-gray-700 mb-6 text-center" data-lang-ar="اختر منصات الإعلان" data-lang-en="Choose Advertising Platforms">اختر منصات الإعلان</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                        <!-- Facebook -->
+                        <div class="flex flex-col items-center justify-center p-4 rounded-lg bg-gray-50 border-2 border-transparent transition-all duration-200 hover:border-indigo-500">
+                            <input type="checkbox" id="fb-platform" name="platforms" value="فيسبوك" checked class="hidden">
+                            <label for="fb-platform" class="cursor-pointer flex flex-col items-center p-4 w-full h-full">
+                                <i class="fab fa-facebook text-4xl text-blue-600 mb-2"></i>
+                                <span class="text-gray-700 font-semibold" data-lang-ar="فيسبوك" data-lang-en="Facebook">فيسبوك</span>
+                            </label>
+                        </div>
+                        <!-- Instagram -->
+                        <div class="flex flex-col items-center justify-center p-4 rounded-lg bg-gray-50 border-2 border-transparent transition-all duration-200 hover:border-indigo-500">
+                            <input type="checkbox" id="ig-platform" name="platforms" value="انستجرام" checked class="hidden">
+                            <label for="ig-platform" class="cursor-pointer flex flex-col items-center p-4 w-full h-full">
+                                <i class="fab fa-instagram text-4xl text-purple-600 mb-2"></i>
+                                <span class="text-gray-700 font-semibold" data-lang-ar="انستجرام" data-lang-en="Instagram">انستجرام</span>
+                            </label>
+                        </div>
+                        <!-- TikTok -->
+                        <div class="flex flex-col items-center justify-center p-4 rounded-lg bg-gray-50 border-2 border-transparent transition-all duration-200 hover:border-indigo-500">
+                            <input type="checkbox" id="tiktok-platform" name="platforms" value="تيك توك" class="hidden">
+                            <label for="tiktok-platform" class="cursor-pointer flex flex-col items-center p-4 w-full h-full">
+                                <i class="fab fa-tiktok text-4xl text-black mb-2"></i>
+                                <span class="text-gray-700 font-semibold" data-lang-ar="تيك توك" data-lang-en="TikTok">تيك توك</span>
+                            </label>
+                        </div>
+                        <!-- Google -->
+                        <div class="flex flex-col items-center justify-center p-4 rounded-lg bg-gray-50 border-2 border-transparent transition-all duration-200 hover:border-indigo-500">
+                            <input type="checkbox" id="google-platform" name="platforms" value="جوجل" class="hidden">
+                            <label for="google-platform" class="cursor-pointer flex flex-col items-center p-4 w-full h-full">
+                                <i class="fab fa-google text-4xl text-red-600 mb-2"></i>
+                                <span class="text-gray-700 font-semibold" data-lang-ar="جوجل" data-lang-en="Google">جوجل</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Summary and Results -->
+                <div class="bg-gray-50 p-6 rounded-lg text-center shadow-inner mb-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-ar="ملخص الباقة" data-lang-en="Package Summary">ملخص الباقة</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-right">
+                        <div>
+                            <p class="text-gray-600 font-semibold mb-2 flex items-center justify-end"><span data-lang-ar="ميزانية الإعلان اليومية:" data-lang-en="Daily Ad Budget:">ميزانية الإعلان اليومية:</span> <span id="ad-budget-display" class="font-bold text-gray-900 mr-2">...</span></p>
+                            <p class="text-gray-600 font-semibold mb-2 flex items-center justify-end"><span data-lang-ar="تكلفة الإدارة (24%):" data-lang-en="Management Fee (24%):">تكلفة الإدارة (24%):</span> <span id="management-fee-display" class="font-bold text-gray-900 mr-2">...</span></p>
+                            <p class="text-gray-600 font-semibold mb-2 flex items-center justify-end"><span data-lang-ar="إجمالي التكلفة اليومية:" data-lang-en="Total Daily Cost:">إجمالي التكلفة اليومية:</span> <span id="total-cost-display" class="font-bold text-gray-900 mr-2">...</span></p>
+                        </div>
+                        <div>
+                            <p class="text-gray-600 font-semibold mb-2 flex items-center justify-end"><span data-lang-ar="الوصول المتوقع يومياً:" data-lang-en="Estimated Daily Reach:">الوصول المتوقع يومياً:</span> <span id="reach-display" class="font-bold text-gray-900 mr-2">...</span></p>
+                            <p class="text-gray-600 font-semibold mb-2 flex items-center justify-end"><span data-lang-ar="الظهور المتوقع يومياً:" data-lang-en="Estimated Daily Impressions:">الظهور المتوقع يومياً:</span> <span id="impressions-display" class="font-bold text-gray-900 mr-2">...</span></p>
+                            <p class="text-gray-600 font-semibold mb-2 flex items-center justify-end"><span class="mr-2" data-lang-ar="المنصات المختارة:" data-lang-en="Selected Platforms:">المنصات المختارة:</span> <span id="platforms-display" class="font-bold text-gray-900">...</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4 rtl:space-x-reverse">
+                    <a id="whatsapp-request-btn" href="#" target="_blank" class="w-full md:w-auto inline-block bg-green-600 text-white font-bold py-4 px-12 rounded-full text-lg shadow-lg hover:bg-green-700 transition transform hover:scale-105">
+                        <i class="fab fa-whatsapp ml-2"></i> <span data-lang-ar="اطلب هذه الباقة عبر واتساب" data-lang-en="Order this package via WhatsApp">اطلب هذه الباقة عبر واتساب</span>
+                    </a>
+                    <!-- New Copy to Clipboard Button -->
+                    <button id="copy-package-btn" class="w-full md:w-auto bg-indigo-600 text-white font-bold py-4 px-12 rounded-full text-lg shadow-lg hover:bg-indigo-700 transition transform hover:scale-105">
+                        <i class="fas fa-copy ml-2"></i> <span data-lang-ar="انسخ التفاصيل" data-lang-en="Copy Details">انسخ التفاصيل</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- Quick Launch Packages Section (Updated) -->
+    <!-- =================================================================== -->
+    <section id="quick-launch-packages" class="py-16 md:py-24 bg-gray-50 animated-section">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-900" data-lang-ar="باقات الانطلاق السريع" data-lang-en="Quick Launch Packages">باقات الانطلاق السريع</h2>
+            <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-12" data-lang-ar="باقات مصممة لتناسب المشاريع المختلفة وتوفر انطلاقة قوية. اختر ما يناسبك وابدأ حملتك فوراً." data-lang-en="Packages designed to fit different projects and provide a strong start. Choose what suits you and start your campaign immediately.">باقات مصممة لتناسب المشاريع المختلفة وتوفر انطلاقة قوية. اختر ما يناسبك وابدأ حملتك فوراً.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Daily Package -->
+                <div class="bg-white rounded-lg shadow-xl p-8 text-center border-t-4 border-yellow-500 transform hover:scale-105 transition duration-300">
+                    <h3 class="text-2xl font-bold text-yellow-700 mb-2" data-lang-ar="الباقة اليومية" data-lang-en="Daily Package">الباقة اليومية</h3>
+                    <p class="text-gray-600 mb-6 text-xl" data-lang-ar="مدة الحملة: يوم واحد" data-lang-en="Campaign Duration: 1 Day">مدة الحملة: يوم واحد</p>
+                    <div class="text-5xl font-extrabold text-gray-900 mb-2">124 <span class="text-2xl font-normal text-gray-500" data-lang-ar="جنيه" data-lang-en="EGP">جنيه</span></div>
+                    <p class="text-gray-500 mb-8" data-lang-ar="إجمالي السعر" data-lang-en="Total Price">إجمالي السعر</p>
+                    <ul class="text-right text-gray-700 space-y-3 mb-8">
+                        <li class="flex items-center justify-end"><span class="mr-2" data-lang-ar="ميزانية الإعلان: 100 جنيه" data-lang-en="Ad Budget: 100 EGP">ميزانية الإعلان: 100 جنيه</span><i class="fas fa-money-bill-wave text-yellow-500"></i></li>
+                        <li class="flex items-center justify-end"><span class="mr-2" data-lang-ar="تكلفة الإدارة (24%): 24 جنيه" data-lang-en="Management Fee (24%): 24 EGP">تكلفة الإدارة (24%): 24 جنيه</span><i class="fas fa-tools text-yellow-500"></i></li>
+                        <li class="flex items-center justify-end"><span class="mr-2" data-lang-ar="الوصول المتوقع: 1,000 - 2,000" data-lang-en="Est. Reach: 1,000 - 2,000">الوصول المتوقع: 1,000 - 2,000</span><i class="fas fa-bullseye text-yellow-500"></i></li>
+                    </ul>
+                    <a href="https://wa.me/201022679250?text=أود%20طلب%20الباقة%20اليومية%20بميزانية%20124%20جنيه%20مصري.%20أرجو%20التواصل%20للمزيد%20من%20التفاصيل." target="_blank" class="w-full block bg-yellow-600 text-white font-bold py-3 px-6 rounded-full hover:bg-yellow-700 transition transform hover:scale-105"><span data-lang-ar="اطلب هذه الباقة" data-lang-en="Order This Package">اطلب هذه الباقة</span></a>
+                </div>
+                <!-- Weekly Package -->
+                <div class="bg-white rounded-lg shadow-xl p-8 text-center border-t-4 border-teal-500 transform hover:scale-105 transition duration-300">
+                    <h3 class="text-2xl font-bold text-teal-700 mb-2" data-lang-ar="الباقة الأسبوعية" data-lang-en="Weekly Package">الباقة الأسبوعية</h3>
+                    <p class="text-gray-600 mb-6 text-xl" data-lang-ar="مدة الحملة: 7 أيام" data-lang-en="Campaign Duration: 7 Days">مدة الحملة: 7 أيام</p>
+                    <div class="text-5xl font-extrabold text-gray-900 mb-2">1,240 <span class="text-2xl font-normal text-gray-500" data-lang-ar="جنيه" data-lang-en="EGP">جنيه</span></div>
+                    <p class="text-gray-500 mb-8" data-lang-ar="إجمالي السعر" data-lang-en="Total Price">إجمالي السعر</p>
+                    <ul class="text-right text-gray-700 space-y-3 mb-8">
+                        <li class="flex items-center justify-end"><span class="mr-2" data-lang-ar="ميزانية الإعلان: 1,000 جنيه" data-lang-en="Ad Budget: 1,000 EGP">ميزانية الإعلان: 1,000 جنيه</span><i class="fas fa-money-bill-wave text-teal-500"></i></li>
+                        <li class="flex items-center justify-end"><span class="mr-2" data-lang-ar="تكلفة الإدارة (24%): 240 جنيه" data-lang-en="Management Fee (24%): 240 EGP">تكلفة الإدارة (24%): 240 جنيه</span><i class="fas fa-tools text-teal-500"></i></li>
+                        <li class="flex items-center justify-end"><span class="mr-2" data-lang-ar="الوصول المتوقع: 7,000 - 14,000" data-lang-en="Est. Reach: 7,000 - 14,000">الوصول المتوقع: 7,000 - 14,000</span><i class="fas fa-bullseye text-teal-500"></i></li>
+                    </ul>
+                    <a href="https://wa.me/201022679250?text=أود%20طلب%20الباقة%20الأسبوعية%20بميزانية%201240%20جنيه%20مصري.%20أرجو%20التواصل%20للمزيد%20من%20التفاصيل." target="_blank" class="w-full block bg-teal-600 text-white font-bold py-3 px-6 rounded-full hover:bg-teal-700 transition transform hover:scale-105"><span data-lang-ar="اطلب هذه الباقة" data-lang-en="Order This Package">اطلب هذه الباقة</span></a>
+                </div>
+                <!-- Monthly Package -->
+                <div class="bg-white rounded-lg shadow-xl p-8 text-center border-t-4 border-orange-500 transform hover:scale-105 transition duration-300">
+                    <h3 class="text-2xl font-bold text-orange-700 mb-2" data-lang-ar="الباقة الشهرية" data-lang-en="Monthly Package">الباقة الشهرية</h3>
+                    <p class="text-gray-600 mb-6 text-xl" data-lang-ar="مدة الحملة: 30 يوم" data-lang-en="Campaign Duration: 30 Days">مدة الحملة: 30 يوم</p>
+                    <div class="text-5xl font-extrabold text-gray-900 mb-2">6,000 <span class="text-2xl font-normal text-gray-500" data-lang-ar="جنيه" data-lang-en="EGP">جنيه</span></div>
+                    <p class="text-gray-500 mb-8" data-lang-ar="إجمالي السعر" data-lang-en="Total Price">إجمالي السعر</p>
+                    <ul class="text-right text-gray-700 space-y-3 mb-8">
+                        <li class="flex items-center justify-end"><span class="mr-2" data-lang-ar="ميزانية الإعلان: 4,838.71 جنيه" data-lang-en="Ad Budget: 4,838.71 EGP">ميزانية الإعلان: 4,838.71 جنيه</span><i class="fas fa-money-bill-wave text-orange-500"></i></li>
+                        <li class="flex items-center justify-end"><span class="mr-2" data-lang-ar="تكلفة الإدارة (24%): 1,161.29 جنيه" data-lang-en="Management Fee (24%): 1,161.29 EGP">تكلفة الإدارة (24%): 1,161.29 جنيه</span><i class="fas fa-tools text-orange-500"></i></li>
+                        <li class="flex items-center justify-end"><span class="mr-2" data-lang-ar="الوصول المتوقع: 38,710 - 77,419" data-lang-en="Est. Reach: 38,710 - 77,419">الوصول المتوقع: 38,710 - 77,419</span><i class="fas fa-bullseye text-orange-500"></i></li>
+                    </ul>
+                    <a href="https://wa.me/201022679250?text=أود%20طلب%20الباقة%20الشهرية%20بميزانية%206000%20جنيه%20مصري.%20أرجو%20التواصل%20للمزيد%20من%20التفاصيل." target="_blank" class="w-full block bg-orange-600 text-white font-bold py-3 px-6 rounded-full hover:bg-orange-700 transition transform hover:scale-105"><span data-lang-ar="اطلب هذه الباقة" data-lang-en="Order This Package">اطلب هذه الباقة</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- Specialized Packages Section (New) -->
+    <!-- =================================================================== -->
+    <section id="specialized-packages" class="py-16 md:py-24 bg-gray-100 animated-section">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-900" data-lang-ar="باقات مخصصة لفئات الأعمال" data-lang-en="Specialized Packages for Business Categories">باقات مخصصة لفئات الأعمال</h2>
+            <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-12" data-lang-ar="باقات مصممة خصيصًا لتلبية احتياجاتك الفريدة، سواء كنت فرداً أو شركة ناشئة أو نشاطاً تجارياً كبيراً." data-lang-en="Packages specially designed to meet your unique needs, whether you are an individual, a startup, or a large commercial business.">باقات مصممة خصيصًا لتلبية احتياجاتك الفريدة، سواء كنت فرداً أو شركة ناشئة أو نشاطاً تجارياً كبيراً.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Individual Package -->
+                <div class="bg-white rounded-lg p-6 shadow-xl text-center border-t-4 border-indigo-500 hover:shadow-2xl transition-all duration-300">
+                    <i class="fas fa-user-tie text-5xl text-indigo-600 mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2" data-lang-ar="باقة الأفراد" data-lang-en="Individuals Package">باقة الأفراد</h3>
+                    <p class="text-gray-600 mb-4" data-lang-ar="للمحترفين وأصحاب الخدمات الصغيرة." data-lang-en="For professionals and small service providers.">للمحترفين وأصحاب الخدمات الصغيرة.</p>
+                    <ul class="text-right text-gray-700 space-y-2 mb-6">
+                        <li class="flex items-center justify-end"><i class="fas fa-check text-green-500 ml-2"></i><span>حملات إعلانية فردية</span></li>
+                        <li class="flex items-center justify-end"><i class="fas fa-check text-green-500 ml-2"></i><span>إدارة حساب واحد</span></li>
+                        <li class="flex items-center justify-end"><i class="fas fa-check text-green-500 ml-2"></i><span>تحليل أداء شهري</span></li>
+                    </ul>
+                    <a href="https://wa.me/201022679250?text=أرغب%20في%20الاستفسار%20عن%20باقة%20الأفراد." target="_blank" class="inline-block bg-indigo-600 text-white font-bold py-3 px-6 rounded-full hover:bg-indigo-700 transition">اطلب الباقة</a>
+                </div>
+                <!-- Services Package -->
+                <div class="bg-white rounded-lg p-6 shadow-xl text-center border-t-4 border-green-500 hover:shadow-2xl transition-all duration-300">
+                    <i class="fas fa-hands-helping text-5xl text-green-600 mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2" data-lang-ar="باقة الخدمات" data-lang-en="Services Package">باقة الخدمات</h3>
+                    <p class="text-gray-600 mb-4" data-lang-ar="للمراكز التعليمية والعيادات والمشاريع الخدمية." data-lang-en="For educational centers, clinics, and service projects.">للمراكز التعليمية والعيادات والمشاريع الخدمية.</p>
+                    <ul class="text-right text-gray-700 space-y-2 mb-6">
+                        <li class="flex items-center justify-end"><i class="fas fa-check text-green-500 ml-2"></i><span>حملات تفاعل ومبيعات</span></li>
+                        <li class="flex items-center justify-end"><i class="fas fa-check text-green-500 ml-2"></i><span>إدارة حسابين على الأكثر</span></li>
+                        <li class="flex items-center justify-end"><i class="fas fa-check text-green-500 ml-2"></i><span>تقرير أداء مفصل</span></li>
+                    </ul>
+                    <a href="https://wa.me/201022679250?text=أرغب%20في%20الاستفسار%20عن%20باقة%20الخدمات." target="_blank" class="inline-block bg-green-600 text-white font-bold py-3 px-6 rounded-full hover:bg-green-700 transition">اطلب الباقة</a>
+                </div>
+                <!-- Startups Package -->
+                <div class="bg-white rounded-lg p-6 shadow-xl text-center border-t-4 border-yellow-500 hover:shadow-2xl transition-all duration-300">
+                    <i class="fas fa-rocket text-5xl text-yellow-600 mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2" data-lang-ar="باقة الشركات الناشئة" data-lang-en="Startups Package">باقة الشركات الناشئة</h3>
+                    <p class="text-gray-600 mb-4" data-lang-ar="للشركات الجديدة التي تسعى للنمو السريع." data-lang-en="For new companies looking for rapid growth.">للشركات الجديدة التي تسعى للنمو السريع.</p>
+                    <ul class="text-right text-gray-700 space-y-2 mb-6">
+                        <li class="flex items-center justify-end"><i class="fas fa-check text-green-500 ml-2"></i><span>إدارة حملات مكثفة</span></li>
+                        <li class="flex items-center justify-end"><i class="fas fa-check text-green-500 ml-2"></i><span>استراتيجية تسويقية كاملة</span></li>
+                        <li class="flex items-center justify-end"><i class="fas fa-check text-green-500 ml-2"></i><span>تتبع الأداء وتحسينه</span></li>
+                    </ul>
+                    <a href="https://wa.me/201022679250?text=أرغب%20في%20الاستفسار%20عن%20باقة%20الشركات%20الناشئة." target="_blank" class="inline-block bg-yellow-600 text-white font-bold py-3 px-6 rounded-full hover:bg-yellow-700 transition">اطلب الباقة</a>
+                </div>
+                <!-- Commercial Package -->
+                <div class="bg-white rounded-lg p-6 shadow-xl text-center border-t-4 border-red-500 hover:shadow-2xl transition-all duration-300">
+                    <i class="fas fa-building text-5xl text-red-600 mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2" data-lang-ar="باقة النشاط التجاري" data-lang-en="Commercial Business Package">باقة النشاط التجاري</h3>
+                    <p class="text-gray-600 mb-4" data-lang-ar="للمتاجر الكبرى والأنشطة ذات الحجم الكبير." data-lang-en="For large stores and high-volume businesses.">للمتاجر الكبرى والأنشطة ذات الحجم الكبير.</p>
+                    <ul class="text-right text-gray-700 space-y-2 mb-6">
+                        <li class="flex items-center justify-end"><i class="fas fa-check text-green-500 ml-2"></i><span>إدارة متكاملة لجميع المنصات</span></li>
+                        <li class="flex items-center justify-end"><i class="fas fa-check text-green-500 ml-2"></i><span>إعلانات مستمرة</span></li>
+                        <li class="flex items-center justify-end"><i class="fas fa-check text-green-500 ml-2"></i><span>تحسين استراتيجي مستمر</span></li>
+                    </ul>
+                    <a href="https://wa.me/201022679250?text=أرغب%20في%20الاستفسار%20عن%20باقة%20النشاط%20التجاري." target="_blank" class="inline-block bg-red-600 text-white font-bold py-3 px-6 rounded-full hover:bg-red-700 transition">اطلب الباقة</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- Smart Package Suggestion Tool (New Section) -->
+    <!-- =================================================================== -->
+    <section id="smart-suggestion-tool" class="py-16 md:py-24 bg-white animated-section">
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+            <h2 class="text-4xl font-bold mb-6 text-gray-900" data-lang-ar="اقتراح باقة ذكي" data-lang-en="Smart Package Suggestion">اقتراح باقة ذكي</h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-12" data-lang-ar="أجب على بعض الأسئلة البسيطة وسيقوم مساعدنا الذكي باقتراح الباقة الأنسب لك." data-lang-en="Answer a few simple questions and our smart assistant will suggest the most suitable package for you.">أجب على بعض الأسئلة البسيطة وسيقوم مساعدنا الذكي باقتراح الباقة الأنسب لك.</p>
+
+            <div class="bg-indigo-50 p-8 rounded-xl shadow-lg text-right">
+                <form id="suggestion-form">
+                    <div class="mb-6 text-right">
+                        <label for="business-type" class="block text-lg font-bold text-gray-700 mb-2" data-lang-ar="ما هو نوع نشاطك التجاري؟" data-lang-en="What is your business type?">ما هو نوع نشاطك التجاري؟</label>
+                        <select id="business-type" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-200">
+                            <option value="individual" data-lang-ar="فرد/خدمات صغيرة" data-lang-en="Individual/Small Services">فرد/خدمات صغيرة</option>
+                            <option value="service" data-lang-ar="شركة خدمات (عيادات، مراكز تعليمية)" data-lang-en="Service Company (Clinics, educational centers)">شركة خدمات (عيادات، مراكز تعليمية)</option>
+                            <option value="startup" data-lang-ar="شركة ناشئة" data-lang-en="Startup">شركة ناشئة</option>
+                            <option value="commercial" data-lang-ar="نشاط تجاري/متجر كبير" data-lang-en="Commercial Business/Large Store">نشاط تجاري/متجر كبير</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-6 text-right">
+                        <label for="marketing-goal" class="block text-lg font-bold text-gray-700 mb-2" data-lang-ar="ما هو هدفك الأساسي؟" data-lang-en="What is your main goal?">ما هو هدفك الأساسي؟</label>
+                        <select id="marketing-goal" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-200">
+                            <option value="awareness" data-lang-ar="زيادة الوعي بالعلامة التجارية" data-lang-en="Increase brand awareness">زيادة الوعي بالعلامة التجارية</option>
+                            <option value="engagement" data-lang-ar="زيادة التفاعل على المحتوى" data-lang-en="Increase content engagement">زيادة التفاعل على المحتوى</option>
+                            <option value="sales" data-lang-ar="زيادة المبيعات/التحويلات" data-lang-en="Increase sales/conversions">زيادة المبيعات/التحويلات</option>
+                            <option value="leads" data-lang-ar="جمع بيانات العملاء (Leads)" data-lang-en="Generate customer leads">جمع بيانات العملاء (Leads)</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-6 text-right">
+                        <label for="monthly-budget" class="block text-lg font-bold text-gray-700 mb-2" data-lang-ar="الميزانية الشهرية المقترحة (بالجنيه المصري):" data-lang-en="Suggested monthly budget (in EGP):">الميزانية الشهرية المقترحة (بالجنيه المصري):</label>
+                        <input type="number" id="monthly-budget" min="1000" max="100000" value="5000" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-200">
+                    </div>
+                </form>
+
+                <div id="suggestion-results" class="mt-8 pt-8 border-t border-indigo-200">
+                    <!-- Results will be displayed here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- Video Guide Section (New Section) -->
+    <!-- =================================================================== -->
+    <section id="video-guide" class="py-16 md:py-24 bg-white animated-section">
+        <div class="container mx-auto px-4 max-w-5xl text-center">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-900" data-lang-ar="شاهد كيف تعمل باقاتنا" data-lang-en="Watch How Our Packages Work">شاهد كيف تعمل باقاتنا</h2>
+            <p class="text-center text-lg text-gray-600 max-w-2xl mx-auto mb-12" data-lang-ar="شاهد هذا الفيديو القصير لترى كيف يمكنك بناء باقتك المخصصة بسهولة والحصول على تقديرات دقيقة لحملتك الإعلانية." data-lang-en="Watch this short video to see how you can easily build your custom package and get accurate estimates for your advertising campaign.">شاهد هذا الفيديو القصير لترى كيف يمكنك بناء باقتك المخصصة بسهولة والحصول على تقديرات دقيقة لحملتك الإعلانية.</p>
+            <div class="relative w-full overflow-hidden rounded-lg shadow-2xl" style="padding-top: 56.25%">
+                <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/sySLXSKB6MM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- Why Choose Us Section -->
+    <!-- =================================================================== -->
+    <section id="why-us" class="py-16 md:py-24 bg-indigo-50 animated-section">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-900" data-lang-ar="لماذا تختار Ehab GM؟" data-lang-en="Why Choose Ehab GM?">لماذا تختار Ehab GM؟</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                <div class="bg-white rounded-lg p-6 shadow-md transition-all duration-300 hover:shadow-xl">
+                    <div class="text-5xl text-indigo-600 mb-4"><i class="fas fa-check-circle"></i></div>
+                    <h3 class="text-xl font-semibold mb-2" data-lang-ar="مصداقية وشفافية" data-lang-en="Credibility and Transparency">مصداقية وشفافية</h3>
+                    <p class="text-gray-700" data-lang-ar="نقدم لك أرقامًا وتقديرات واقعية مبنية على خبرة عميقة في السوق المصري." data-lang-en="We provide you with realistic numbers and estimates based on deep experience in the Egyptian market.">نقدم لك أرقامًا وتقديرات واقعية مبنية على خبرة عميقة في السوق المصري.</p>
+                </div>
+                <div class="bg-white rounded-lg p-6 shadow-md transition-all duration-300 hover:shadow-xl">
+                    <div class="text-5xl text-indigo-600 mb-4"><i class="fas fa-star-half-alt"></i></div>
+                    <h3 class="text-xl font-semibold mb-2" data-lang-ar="خبرة متكاملة" data-lang-en="Comprehensive Experience">خبرة متكاملة</h3>
+                    <p class="text-gray-700" data-lang-ar="فريقنا يجمع بين خبرة التصميم الجرافيكي والتسويق الرقمي لتحقيق أفضل النتائج." data-lang-en="Our team combines graphic design and digital marketing expertise to achieve the best results.">فريقنا يجمع بين خبرة التصميم الجرافيكي والتسويق الرقمي لتحقيق أفضل النتائج.</p>
+                </div>
+                <div class="bg-white rounded-lg p-6 shadow-md transition-all duration-300 hover:shadow-xl">
+                    <div class="text-5xl text-indigo-600 mb-4"><i class="fas fa-brain"></i></div>
+                    <h3 class="text-xl font-semibold mb-2" data-lang-ar="حلول بالذكاء الاصطناعي" data-lang-en="AI-Powered Solutions">حلول بالذكاء الاصطناعي</h3>
+                    <p class="text-gray-700" data-lang-ar="نستخدم أحدث تقنيات الذكاء الاصطناعي لتحليل البيانات واستهداف جمهورك بدقة." data-lang-en="We use the latest AI technologies to analyze data and accurately target your audience.">نستخدم أحدث تقنيات الذكاء الاصطناعي لتحليل البيانات واستهداف جمهورك بدقة.</p>
+                </div>
+                <div class="bg-white rounded-lg p-6 shadow-md transition-all duration-300 hover:shadow-xl">
+                    <div class="text-5xl text-indigo-600 mb-4"><i class="fas fa-link"></i></div>
+                    <h3 class="text-xl font-semibold mb-2" data-lang-ar="وثائق شاملة" data-lang-en="Comprehensive Documentation">وثائق شاملة</h3>
+                    <p class="text-gray-700" data-lang-ar="اطلع على دليلنا الكامل للخدمات وكيفية عملها من خلال <a href='https://ehabgm.link/' target='_blank' class='text-indigo-600 hover:underline'>الرابط هنا</a>" data-lang-en="Check out our complete guide to services and how they work through <a href='https://ehabgm.link/' target='_blank' class='text-indigo-600 hover:underline'>this link</a>">اطلع على دليلنا الكامل للخدمات وكيفية عملها من خلال <a href='https://ehabgm.link/' target='_blank' class='text-indigo-600 hover:underline'>الرابط هنا</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- Testimonials Section (New Section) -->
+    <!-- =================================================================== -->
+    <section id="testimonials" class="py-16 md:py-24 bg-gray-100 animated-section">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-900" data-lang-ar="ماذا يقول عملاؤنا؟" data-lang-en="What Our Clients Say?">ماذا يقول عملاؤنا؟</h2>
+            <div class="relative overflow-hidden w-full">
+                <!-- Testimonials container for the carousel effect -->
+                <div id="testimonials-container" class="flex transition-transform duration-500 ease-in-out">
+                    <!-- Testimonial 1 -->
+                    <div class="min-w-full flex-shrink-0 px-2 md:px-4">
+                        <div class="bg-white rounded-xl shadow-xl p-8 flex flex-col items-center text-center">
+                            <i class="fas fa-user-circle testimonial-icon"></i>
+                            <p class="text-gray-700 italic mb-4" data-lang-ar="&quot;خبرة ممتازة، ونتائج سريعة وملموسة. أنصح بالتعامل معهم بشدة.&quot;" data-lang-en="&quot;Excellent experience, and fast, tangible results. I highly recommend working with them.&quot;">"خبرة ممتازة، ونتائج سريعة وملموسة. أنصح بالتعامل معهم بشدة."</p>
+                            <h4 class="font-bold text-indigo-600" data-lang-ar="أحمد محمد" data-lang-en="Ahmed Mohamed">أحمد محمد</h4>
+                            <p class="text-sm text-gray-500" data-lang-ar="مدير تسويق، شركة عقارات" data-lang-en="Marketing Manager, Real Estate Company">مدير تسويق، شركة عقارات</p>
+                        </div>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="min-w-full flex-shrink-0 px-2 md:px-4">
+                        <div class="bg-white rounded-xl shadow-xl p-8 flex flex-col items-center text-center">
+                            <i class="fas fa-user-circle testimonial-icon"></i>
+                            <p class="text-gray-700 italic mb-4" data-lang-ar="&quot;حلول مبتكرة وأداء إعلاني رائع. حققنا أهدافنا التسويقية في وقت قياسي.&quot;" data-lang-en="&quot;Innovative solutions and great ad performance. We achieved our marketing goals in record time.&quot;">"حلول مبتكرة وأداء إعلاني رائع. حققنا أهدافنا التسويقية في وقت قياسي."</p>
+                            <h4 class="font-bold text-indigo-600" data-lang-ar="فاطمة علي" data-lang-en="Fatima Ali">فاطمة علي</h4>
+                            <p class="text-sm text-gray-500" data-lang-ar="صاحبة متجر إلكتروني" data-lang-en="E-commerce Store Owner">صاحبة متجر إلكتروني</p>
+                        </div>
+                    </div>
+                     <!-- Testimonial 3 -->
+                    <div class="min-w-full flex-shrink-0 px-2 md:px-4">
+                        <div class="bg-white rounded-xl shadow-xl p-8 flex flex-col items-center text-center">
+                            <i class="fas fa-user-circle testimonial-icon"></i>
+                            <p class="text-gray-700 italic mb-4" data-lang-ar="&quot;خدمة عملاء ممتازة ونتائج تفوق التوقعات. سأستمر في التعامل معهم.&quot;" data-lang-en="&quot;Excellent customer service and results that exceed expectations. I will continue to work with them.&quot;">"خدمة عملاء ممتازة ونتائج تفوق التوقعات. سأستمر في التعامل معهم."</p>
+                            <h4 class="font-bold text-indigo-600" data-lang-ar="خالد محمود" data-lang-en="Khaled Mahmoud">خالد محمود</h4>
+                            <p class="text-sm text-gray-500" data-lang-ar="صاحب مقهى" data-lang-en="Cafe Owner">صاحب مقهى</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- Tips Section -->
+    <!-- =================================================================== -->
+    <section id="tips" class="py-16 md:py-24 bg-white animated-section">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-900" data-lang-ar="نصائح لاختيار الباقة المناسبة" data-lang-en="Tips for Choosing the Right Package">نصائح لاختيار الباقة المناسبة</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Tip 1 -->
+                <div class="bg-gray-100 rounded-lg p-6 shadow-md text-center">
+                    <div class="text-4xl text-indigo-600 mb-4"><i class="fas fa-lightbulb"></i></div>
+                    <h3 class="text-xl font-semibold mb-2" data-lang-ar="حدد هدفك بوضوح" data-lang-en="Clearly Define Your Goal">حدد هدفك بوضوح</h3>
+                    <p class="text-gray-700" data-lang-ar="هل تريد زيادة الوعي بعلامتك التجارية، أم زيادة المبيعات، أم الحصول على تفاعلات أكثر؟ اختيارك سيوجهنا نحو الباقة الأفضل." data-lang-en="Do you want to increase brand awareness, boost sales, or get more engagement? Your choice will guide us to the best package.">هل تريد زيادة الوعي بعلامتك التجارية، أم زيادة المبيعات، أم الحصول على تفاعلات أكثر؟ اختيارك سيوجهنا نحو الباقة الأفضل.</p>
+                </div>
+                <!-- Tip 2 -->
+                <div class="bg-gray-100 rounded-lg p-6 shadow-md text-center">
+                    <div class="text-4xl text-indigo-600 mb-4"><i class="fas fa-hand-holding-usd"></i></div>
+                    <h3 class="text-xl font-semibold mb-2" data-lang-ar="ابدأ بميزانية صغيرة" data-lang-en="Start with a Small Budget">ابدأ بميزانية صغيرة</h3>
+                    <p class="text-gray-700" data-lang-ar="إذا كنت جديداً في التسويق الرقمي، يمكنك البدء بالباقات اليومية أو الأسبوعية لاختبار النتائج قبل الانتقال إلى باقات أكبر." data-lang-en="If you're new to digital marketing, you can start with daily or weekly packages to test the results before moving to larger packages.">إذا كنت جديداً في التسويق الرقمي، يمكنك البدء بالباقات اليومية أو الأسبوعية لاختبار النتائج قبل الانتقال إلى باقات أكبر.</p>
+                </div>
+                <!-- Tip 3 -->
+                <div class="bg-gray-100 rounded-lg p-6 shadow-md text-center">
+                    <div class="text-4xl text-indigo-600 mb-4"><i class="fas fa-users-cog"></i></div>
+                    <h3 class="text-xl font-semibold mb-2" data-lang-ar="استفد من التخصيص" data-lang-en="Benefit from Customization">استفد من التخصيص</h3>
+                    <p class="text-gray-700" data-lang-ar="أداتنا التفاعلية مصممة لتوفر لك مرونة كاملة. جرب ميزانيات ومنصات مختلفة حتى تصل إلى الباقة المثالية لعملك." data-lang-en="Our interactive tool is designed to give you full flexibility. Try different budgets and platforms to find the perfect package for your business.">أداتنا التفاعلية مصممة لتوفر لك مرونة كاملة. جرب ميزانيات ومنصات مختلفة حتى تصل إلى الباقة المثالية لعملك.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- Footer Section -->
+    <!-- =================================================================== -->
+    <footer class="bg-gray-900 text-gray-300 py-12 md:py-16">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mb-8">
+                <a href="#hero" class="flex items-center justify-center space-x-2 rtl:space-x-reverse mb-4">
+                    <img src="https://i.postimg.cc/J4QX3W0Y/logo.png" alt="Ehab GM Logo" class="rounded-full w-16 h-16">
+                </a>
+                <p class="text-lg mb-4" data-lang-ar="&quot;شريكك للنجاح الرقمي في مصر&quot;" data-lang-en="&quot;Your Partner for Digital Success in Egypt&quot;">"شريكك للنجاح الرقمي في مصر"</p>
+                <div class="flex justify-center space-x-6 rtl:space-x-reverse text-2xl">
+                    <a href="#" class="text-gray-400 hover:text-indigo-400 transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-indigo-400 transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-indigo-400 transition"><i class="fab fa-behance"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-indigo-400 transition"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 mt-8">
+                <p>&copy; <span id="currentYear"></span> <span data-lang-ar="جميع الحقوق محفوظة لـ Ehab GM Online Services" data-lang-en="All rights reserved by Ehab GM Online Services">جميع الحقوق محفوظة لـ Ehab GM Online Services</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- =================================================================== -->
+    <!-- Floating Buttons and Chat Pop-up -->
+    <!-- =================================================================== -->
+    <button id="scrollToTopBtn" class="floating-btn"><i class="fas fa-arrow-up"></i></button>
+    <a id="whatsapp-button" href="https://wa.me/201022679250" target="_blank" class="floating-btn rtl:left-20 ltr:right-20 bottom-20"><i class="fab fa-whatsapp"></i></a>
+    <!-- New Chat button -->
+    <button id="chat-button" class="floating-btn rtl:right-20 ltr:left-20 bottom-20"><i class="fas fa-comments"></i></button>
+
+    <!-- New Chat Pop-up -->
+    <div id="chat-popup" class="hidden rtl:left-20 ltr:right-20 bottom-20">
+        <div class="chat-header">
+            <h3 class="text-xl font-bold" data-lang-ar="مساعد EMIA" data-lang-en="EMIA Assistant">مساعد EMIA</h3>
+            <button id="close-chat-popup" class="text-white text-2xl">&times;</button>
+        </div>
+        <div id="chat-messages" class="chat-messages">
+            <!-- Chat messages will be appended here -->
+        </div>
+        <form id="chat-form" class="chat-input">
+            <input type="text" id="chat-input-field" placeholder="اكتب رسالتك..." class="flex-grow rounded-full px-4 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            <button type="submit" class="bg-indigo-600 text-white rounded-full p-3 ml-2 hover:bg-indigo-700 transition"><i class="fas fa-paper-plane"></i></button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Language Switcher Logic ---
+            const langSwitcher = document.getElementById('lang-switcher');
+            let isArabic = document.documentElement.lang === 'ar';
+
+            function updateLanguageContent() {
+                const elements = document.querySelectorAll('[data-lang-ar]');
+                elements.forEach(el => {
+                    if (isArabic) {
+                        el.innerHTML = el.dataset.langAr;
+                        document.documentElement.setAttribute('dir', 'rtl');
+                    } else {
+                        el.innerHTML = el.dataset.langEn;
+                        document.documentElement.setAttribute('dir', 'ltr');
+                    }
+                });
+            }
+
+            langSwitcher.addEventListener('click', () => {
+                isArabic = !isArabic;
+                document.documentElement.lang = isArabic ? 'ar' : 'en';
+                langSwitcher.textContent = isArabic ? 'EN' : 'AR';
+                updateLanguageContent();
+            });
+            
+            // --- Mobile Menu Toggle Logic ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // --- Scroll to Top Button Logic ---
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    scrollToTopBtn.style.display = 'flex';
+                } else {
+                    scrollToTopBtn.style.display = 'none';
+                }
+            });
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // --- Year Update Logic ---
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+            // --- Scroll Animation Logic ---
+            const animatedSections = document.querySelectorAll('.animated-section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            animatedSections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            // --- Interactive Package Builder Modal Logic ---
+            const openModalBtn = document.getElementById('open-package-builder-modal');
+            const closeModalBtn = document.getElementById('close-package-builder-modal');
+            const modal = document.getElementById('package-builder-modal');
+
+            openModalBtn.addEventListener('click', () => {
+                modal.classList.remove('hidden');
+            });
+
+            closeModalBtn.addEventListener('click', () => {
+                modal.classList.add('hidden');
+            });
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.add('hidden');
+                }
+            });
+
+            // --- Interactive Package Builder Logic ---
+            const dailyBudgetSlider = document.getElementById('daily-budget-slider');
+            const dailyBudgetValue = document.getElementById('daily-budget-value');
+            const adBudgetDisplay = document.getElementById('ad-budget-display');
+            const managementFeeDisplay = document.getElementById('management-fee-display');
+            const totalCostDisplay = document.getElementById('total-cost-display');
+            const reachDisplay = document.getElementById('reach-display');
+            const impressionsDisplay = document.getElementById('impressions-display');
+            const platformsDisplay = document.getElementById('platforms-display');
+            const whatsappRequestBtn = document.getElementById('whatsapp-request-btn');
+            const platformCheckboxes = document.querySelectorAll('input[name="platforms"]');
+            const copyPackageBtn = document.getElementById('copy-package-btn');
+
+            const managementFeeRate = 0.24; // 24%
+
+            function updatePackageDetails() {
+                const totalDailyCost = parseFloat(dailyBudgetSlider.value);
+                
+                // Calculate ad budget and management fee
+                const adBudget = totalDailyCost / (1 + managementFeeRate);
+                const managementFee = totalDailyCost - adBudget;
+
+                // Simple linear estimation for reach and impressions
+                const minReachPerEGP = 8;
+                const maxReachPerEGP = 16;
+                const minImpressionsPerEGP = 12;
+                const maxImpressionsPerEGP = 24;
+
+                const minReach = Math.round(adBudget * minReachPerEGP);
+                const maxReach = Math.round(adBudget * maxReachPerEGP);
+                const minImpressions = Math.round(adBudget * minImpressionsPerEGP);
+                const maxImpressions = Math.round(adBudget * maxImpressionsPerEGP);
+
+                // Update UI with calculated values
+                dailyBudgetValue.textContent = totalDailyCost.toFixed(0);
+                adBudgetDisplay.textContent = `${adBudget.toFixed(2)} جنيه مصري`;
+                managementFeeDisplay.textContent = `${managementFee.toFixed(2)} جنيه مصري`;
+                totalCostDisplay.textContent = `${totalDailyCost.toFixed(2)} جنيه مصري`;
+                reachDisplay.textContent = `${minReach.toLocaleString()} - ${maxReach.toLocaleString()}`;
+                impressionsDisplay.textContent = `${minImpressions.toLocaleString()} - ${maxImpressions.toLocaleString()}`;
+
+                // Update selected platforms
+                const selectedPlatforms = Array.from(platformCheckboxes)
+                                                .filter(cb => cb.checked)
+                                                .map(cb => cb.value);
+                const platformsText = selectedPlatforms.length > 0 ? selectedPlatforms.join(' و ') : 'لم يتم اختيار أي منصة';
+                platformsDisplay.textContent = platformsText;
+
+                // Update WhatsApp link
+                const whatsappMessage = `أود الاستفسار عن باقة مخصصة:\n\n- الميزانية اليومية: ${totalDailyCost.toFixed(0)} جنيه\n- الميزانية الإعلانية: ${adBudget.toFixed(2)} جنيه\n- تكلفة الإدارة (24%): ${managementFee.toFixed(2)} جنيه\n- المنصات المختارة: ${platformsText}\n\nأرجو التواصل لمناقشة التفاصيل.`;
+                whatsappRequestBtn.href = `https://wa.me/201022679250?text=${encodeURIComponent(whatsappMessage)}`;
+            }
+
+            // Event listeners for package builder
+            dailyBudgetSlider.addEventListener('input', updatePackageDetails);
+            platformCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', updatePackageDetails);
+                const container = checkbox.closest('.flex');
+                if (container) {
+                    const updateContainerStyle = () => {
+                        if (checkbox.checked) {
+                            container.classList.add('border-indigo-500');
+                        } else {
+                            container.classList.remove('border-indigo-500');
+                        }
+                    };
+                    checkbox.addEventListener('change', updateContainerStyle);
+                    updateContainerStyle();
+                }
+            });
+
+            // New Copy to Clipboard Functionality
+            copyPackageBtn.addEventListener('click', () => {
+                const packageDetails = `ملخص الباقة المخصصة:\n\n` +
+                                     `الميزانية اليومية: ${dailyBudgetValue.textContent} جنيه مصري\n` +
+                                     `ميزانية الإعلان اليومية: ${adBudgetDisplay.textContent}\n` +
+                                     `تكلفة الإدارة (24%): ${managementFeeDisplay.textContent}\n` +
+                                     `إجمالي التكلفة اليومية: ${totalCostDisplay.textContent}\n` +
+                                     `الوصول المتوقع يومياً: ${reachDisplay.textContent}\n` +
+                                     `الظهور المتوقع يومياً: ${impressionsDisplay.textContent}\n` +
+                                     `المنصات المختارة: ${platformsDisplay.textContent}\n\n` +
+                                     `للمزيد من التفاصيل، يرجى التواصل عبر واتساب: +201022679250`;
+                
+                // Use the deprecated but reliable `execCommand` for cross-browser support in iframes
+                const tempInput = document.createElement('textarea');
+                tempInput.value = packageDetails;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+
+                // Provide user feedback
+                const originalText = copyPackageBtn.querySelector('span').textContent;
+                copyPackageBtn.querySelector('span').textContent = 'تم النسخ!';
+                setTimeout(() => {
+                    copyPackageBtn.querySelector('span').textContent = originalText;
+                }, 2000);
+            });
+            updatePackageDetails();
+
+            // --- Testimonials Carousel Logic ---
+            const testimonialsContainer = document.getElementById('testimonials-container');
+            let currentTestimonialIndex = 0;
+            const totalTestimonials = testimonialsContainer.children.length;
+
+            function showNextTestimonial() {
+                currentTestimonialIndex = (currentTestimonialIndex + 1) % totalTestimonials;
+                const offset = -currentTestimonialIndex * 100;
+                testimonialsContainer.style.transform = `translateX(${offset}%)`;
+            }
+
+            setInterval(showNextTestimonial, 5000); // Change testimonial every 5 seconds
+
+            // --- Chat Pop-up Logic ---
+            const chatButton = document.getElementById('chat-button');
+            const chatPopup = document.getElementById('chat-popup');
+            const closeChatBtn = document.getElementById('close-chat-popup');
+            const chatMessagesContainer = document.getElementById('chat-messages');
+            const chatForm = document.getElementById('chat-form');
+            const chatInputField = document.getElementById('chat-input-field');
+
+            chatButton.addEventListener('click', () => {
+                chatPopup.classList.toggle('hidden');
+                if (!chatPopup.classList.contains('hidden')) {
+                    // Scroll to the bottom on open
+                    chatMessagesContainer.scrollTop = chatMessagesContainer.scrollHeight;
+                }
+            });
+            closeChatBtn.addEventListener('click', () => {
+                chatPopup.classList.add('hidden');
+            });
+
+            // Initial bot message
+            appendMessageToChat('أهلاً بك! أنا مساعد EMIA. كيف يمكنني مساعدتك اليوم؟', 'bot');
+
+            chatForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const userMessage = chatInputField.value.trim();
+                if (userMessage) {
+                    appendMessageToChat(userMessage, 'user');
+                    chatInputField.value = '';
+                    getBotResponse(userMessage);
+                }
+            });
+
+            function appendMessageToChat(text, sender) {
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add(sender === 'user' ? 'message-user' : 'message-bot');
+                messageDiv.textContent = text;
+                chatMessagesContainer.prepend(messageDiv);
+            }
+
+            function addTypingIndicator() {
+                const typingIndicator = document.createElement('div');
+                typingIndicator.classList.add('typing-indicator', 'message-bot');
+                typingIndicator.textContent = 'EMIA يكتب...';
+                typingIndicator.id = 'typing-indicator';
+                chatMessagesContainer.prepend(typingIndicator);
+            }
+
+            function removeTypingIndicator() {
+                const typingIndicator = document.getElementById('typing-indicator');
+                if (typingIndicator) {
+                    typingIndicator.remove();
+                }
+            }
+
+            async function getBotResponse(userMessage) {
+                addTypingIndicator();
+                try {
+                    let chatHistory = [];
+                    chatHistory.push({ role: "user", parts: [{ text: userMessage }] });
+                    const payload = { contents: chatHistory };
+                    const apiKey = "AIzaSyAK3LA-F1e7u0dxCZkVKTzfSR0AdO2ZHCU";
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+                    
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    
+                    const result = await response.json();
+                    
+                    removeTypingIndicator();
+                    
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        const botResponse = result.candidates[0].content.parts[0].text;
+                        appendMessageToChat(botResponse, 'bot');
+                    } else {
+                        appendMessageToChat('عفواً، حدث خطأ ما. يرجى المحاولة مرة أخرى.', 'bot');
+                    }
+                } catch (error) {
+                    console.error("Error getting bot response:", error);
+                    removeTypingIndicator();
+                    appendMessageToChat('عفواً، حدث خطأ ما. يرجى المحاولة مرة أخرى.', 'bot');
+                }
+            }
+
+            // --- Smart Package Suggestion Logic ---
+            const suggestionForm = document.getElementById('suggestion-form');
+            const businessTypeSelect = document.getElementById('business-type');
+            const marketingGoalSelect = document.getElementById('marketing-goal');
+            const monthlyBudgetInput = document.getElementById('monthly-budget');
+            const suggestionResultsDiv = document.getElementById('suggestion-results');
+
+            function getSuggestion() {
+                const businessType = businessTypeSelect.value;
+                const marketingGoal = marketingGoalSelect.value;
+                const budget = parseInt(monthlyBudgetInput.value);
+
+                // Start loading indicator
+                suggestionResultsDiv.innerHTML = `<div class="loading-indicator"></div>`;
+
+                // Simulate API call and get a suggestion
+                setTimeout(() => {
+                    let suggestion = {};
+                    let platforms = ['فيسبوك', 'انستجرام'];
+                    let estimatedReach = '';
+                    let estimatedImpressions = '';
+                    let details = '';
+                    let recommendedBudget = 0;
+
+                    if (businessType === 'individual') {
+                        recommendedBudget = budget >= 1000 && budget <= 3000 ? budget : 2000;
+                        platforms = ['فيسبوك', 'انستجرام'];
+                        if (marketingGoal === 'awareness' || marketingGoal === 'engagement') {
+                            estimatedReach = `${(recommendedBudget * 5).toLocaleString()} - ${(recommendedBudget * 10).toLocaleString()}`;
+                            estimatedImpressions = `${(recommendedBudget * 8).toLocaleString()} - ${(recommendedBudget * 15).toLocaleString()}`;
+                            details = 'توصي هذه الباقة بحملات تركز على زيادة الوعي والتفاعل الشخصي مع جمهورك.';
+                        } else {
+                            estimatedReach = `${(recommendedBudget * 3).toLocaleString()} - ${(recommendedBudget * 7).toLocaleString()}`;
+                            estimatedImpressions = `${(recommendedBudget * 5).toLocaleString()} - ${(recommendedBudget * 10).toLocaleString()}`;
+                            details = 'باقة مصممة لزيادة المبيعات والعملاء المحتملين لخدماتك الفردية.';
+                        }
+                    } else if (businessType === 'service') {
+                        recommendedBudget = budget >= 3000 && budget <= 10000 ? budget : 5000;
+                        platforms = ['فيسبوك', 'جوجل'];
+                        if (marketingGoal === 'leads') {
+                            estimatedReach = `${(recommendedBudget * 4).toLocaleString()} - ${(recommendedBudget * 8).toLocaleString()}`;
+                            estimatedImpressions = `${(recommendedBudget * 7).toLocaleString()} - ${(recommendedBudget * 14).toLocaleString()}`;
+                            details = 'تركز هذه الباقة على جمع بيانات العملاء المحتملين لخدماتك.';
+                        } else {
+                            estimatedReach = `${(recommendedBudget * 5).toLocaleString()} - ${(recommendedBudget * 10).toLocaleString()}`;
+                            estimatedImpressions = `${(recommendedBudget * 10).toLocaleString()} - ${(recommendedBudget * 20).toLocaleString()}`;
+                            details = 'باقة مثالية لزيادة الوعي بخدماتك وجذب المزيد من التفاعل.';
+                        }
+                    } else if (businessType === 'startup') {
+                        recommendedBudget = budget >= 8000 && budget <= 25000 ? budget : 15000;
+                        platforms = ['فيسبوك', 'انستجرام', 'تيك توك'];
+                        estimatedReach = `${(recommendedBudget * 6).toLocaleString()} - ${(recommendedBudget * 12).toLocaleString()}`;
+                        estimatedImpressions = `${(recommendedBudget * 10).toLocaleString()} - ${(recommendedBudget * 20).toLocaleString()}`;
+                        details = 'باقة متكاملة للشركات الناشئة لزيادة الوعي وبناء قاعدة عملاء قوية.';
+                    } else if (businessType === 'commercial') {
+                        recommendedBudget = budget >= 20000 ? budget : 20000;
+                        platforms = ['فيسبوك', 'انستجرام', 'تيك توك', 'جوجل'];
+                        estimatedReach = `${(recommendedBudget * 7).toLocaleString()} - ${(recommendedBudget * 14).toLocaleString()}`;
+                        estimatedImpressions = `${(recommendedBudget * 12).toLocaleString()} - ${(recommendedBudget * 25).toLocaleString()}`;
+                        details = 'باقة شاملة للأنشطة التجارية الكبرى لضمان أقصى وصول وتحقيق مبيعات مرتفعة.';
+                    }
+                    
+                    const adBudget = recommendedBudget / (1 + managementFeeRate);
+                    const managementFee = recommendedBudget - adBudget;
+
+                    const resultsHtml = `
+                        <div class="text-right">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-ar="اقتراح باقة لك" data-lang-en="Your Suggested Package">اقتراح باقة لك</h3>
+                            <p class="text-gray-600 mb-4">${details}</p>
+                            <div class="bg-white p-6 rounded-lg shadow-inner">
+                                <p class="text-gray-600 font-semibold mb-2 flex items-center justify-end"><span class="mr-2">الميزانية الشهرية المقترحة:</span> <span class="font-bold text-indigo-600">${recommendedBudget.toLocaleString()} جنيه</span></p>
+                                <p class="text-gray-600 font-semibold mb-2 flex items-center justify-end"><span class="mr-2">ميزانية الإعلان:</span> <span class="font-bold text-gray-900">${adBudget.toFixed(2)} جنيه</span></p>
+                                <p class="text-gray-600 font-semibold mb-2 flex items-center justify-end"><span class="mr-2">تكلفة الإدارة (24%):</span> <span class="font-bold text-gray-900">${managementFee.toFixed(2)} جنيه</span></p>
+                                <p class="text-gray-600 font-semibold mb-2 flex items-center justify-end"><span class="mr-2">الوصول المتوقع شهرياً:</span> <span class="font-bold text-gray-900">${estimatedReach}</span></p>
+                                <p class="text-gray-600 font-semibold mb-2 flex items-center justify-end"><span class="mr-2">الظهور المتوقع شهرياً:</span> <span class="font-bold text-gray-900">${estimatedImpressions}</span></p>
+                                <p class="text-gray-600 font-semibold mb-2 flex items-center justify-end"><span class="mr-2">المنصات المقترحة:</span> <span class="font-bold text-indigo-600">${platforms.join(' و ')}</span></p>
+                            </div>
+                            <div class="mt-6">
+                                <a href="https://wa.me/201022679250?text=${encodeURIComponent(`أهلاً، أرغب في مناقشة الباقة المقترحة لنشاطي التجاري:\n\n- نوع النشاط: ${businessType}\n- الهدف: ${marketingGoal}\n- الميزانية: ${recommendedBudget} جنيه`)}" target="_blank" class="inline-block bg-green-600 text-white font-bold py-3 px-8 rounded-full hover:bg-green-700 transition transform hover:scale-105">
+                                    <i class="fab fa-whatsapp ml-2"></i> تواصل معنا لمناقشة الباقة
+                                </a>
+                            </div>
+                        </div>
+                    `;
+                    suggestionResultsDiv.innerHTML = resultsHtml;
+
+                }, 1500);
+            }
+            
+            // Event listeners for suggestion tool
+            suggestionForm.addEventListener('change', getSuggestion);
+            getSuggestion(); // Initial call
+            
+            // Update initial language content
+            updateLanguageContent();
+        });
+    </script>
+</body>
+</html>
